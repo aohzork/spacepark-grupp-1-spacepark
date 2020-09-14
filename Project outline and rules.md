@@ -74,6 +74,10 @@
 
 
 
+- En Video ska skapas som del av inlämningen
+
+
+
 **TIPS**
 
 - Stäng alltid ned Azure-resurser när de inte används.
