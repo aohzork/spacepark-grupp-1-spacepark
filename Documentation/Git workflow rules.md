@@ -9,4 +9,4 @@
 
 
 
-![Git Workflow](/Git Workflow.png)
+![Git Workflow](spacepark-grupp-1-spacepark/Documentation/Git Workflow.png)
