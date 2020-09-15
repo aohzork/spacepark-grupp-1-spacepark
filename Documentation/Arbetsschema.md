@@ -1,41 +1,13 @@
-**Stand-Up **
+#### En typisk rekommenderad arbetsdag:
 
-**15/9 2020 (Hampus):**
+Börja dagen 09.00 - standup
 
-Gemensamt:
+Lunch 12:00
 
-- Issue 10: Grov planeringsskiss.
-
-
-
-Andreas:
-
-- Sätta sig in i projektet.
-- Behöver göra privata ärenden fm. men kommer tillbaka em.
-- Meddelar upptagen på torsdag em. samt 5 & 6 okt.
+Avstämning 14:30
 
 
 
-Micael:
+Dokumentation sker löpande
 
-- Ska iväg vid 15-tiden.
-- Tänker fortsätta arbetet vid 20/21-tiden om det finns något spec. som behövs göras.
-
-
-
-Erik: 
-
-- Sätta sig in i projektet.
-
-
-
-Sebastian:
-
-- Sätta sig in i projektet.
-
-
-
-Hampus: 
-
-- Sätta sig in i projektet.
-
+Code reviews sker löpande eller när någon ber om det med undantag för kring lunch då alla bör göra en koll och se om något behöver reviewas och godkännas.
