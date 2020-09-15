@@ -1,4 +1,4 @@
-# Process
+# Blog
 
 2020-09-14
 
@@ -8,3 +8,8 @@ I Google Drive skapade vi en delbar mapp med Google Teckningar dokument. Dessa d
 
 Ett Github-repo har skapats med ett .Net Core API projekt som laddats upp till Github. Fortsatt planering för att komma överens om "gruppregler", flödeschema mm. fortsätter efterkommande dag. 
 
+2020-09-15
+
+Fortsatt arbete med processerna och gruppreglerna.
+
+Process för gemensam hantering av github klar tillsammans med flödesschema.
