@@ -10,6 +10,8 @@ Ett Github-repo har skapats med ett .Net Core API projekt som laddats upp till G
 
 2020-09-15
 
-Fortsatt arbete med processerna och gruppreglerna.
-
-Process för gemensam hantering av github klar tillsammans med flödesschema.
+- Fortsatt arbete med processerna och gruppreglerna. Följande processer är klara:
+- Process för gemensam hantering av github klar tillsammans med flödesschema. 
+- Databasdesign som skall kodas upp via Code First. Vi använde **Management Studio** till detta, då det går snabbt att skissa upp Tables, Attribut och Relationer.
+- Schematider för gruppen
+- Funktionalitetsdesign
