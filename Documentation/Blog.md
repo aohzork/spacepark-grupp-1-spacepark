@@ -15,3 +15,4 @@ Ett Github-repo har skapats med ett .Net Core API projekt som laddats upp till G
 - Databasdesign som skall kodas upp via Code First. Vi använde **Management Studio** till detta, då det går snabbt att skissa upp Tables, Attribut och Relationer.
 - Schematider för gruppen
 - Funktionalitetsdesign
+- Build pipeline igång. Kan behövas eventuell konfigurering senare.
