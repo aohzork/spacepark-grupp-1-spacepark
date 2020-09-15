@@ -9,4 +9,4 @@
 
 
 
-![Git Workflow](spacepark-grupp-1-spacepark/Documentation/Git Workflow.png)
+![Git Workflow](https://github.com/PGBSNH19/spacepark-grupp-1-spacepark/blob/master/Documentation/Git%20Workflow.png)
