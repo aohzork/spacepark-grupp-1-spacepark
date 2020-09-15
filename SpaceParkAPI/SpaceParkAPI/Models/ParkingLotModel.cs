@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace SpaceParkAPI.Models
 {
-    public class ParkingLot
+    public class ParkingLotModel
     { 
         [Key]
         public long ID { get; set; }
