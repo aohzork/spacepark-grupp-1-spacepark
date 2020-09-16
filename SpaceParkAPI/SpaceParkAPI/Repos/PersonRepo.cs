@@ -19,7 +19,7 @@ namespace SpaceParkAPI.Repos
         {
             return query;
         }
-        public string GetPersonName()
+        public async Task<string> GetPersonName()
         {
             throw new NotImplementedException();
         }
