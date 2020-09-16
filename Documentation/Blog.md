@@ -33,3 +33,15 @@ Fortsatt arbete med issues.
 DB Context och models klara 
 
 Skapat första migration & devops pipeline för Databasen
+
+**SQLDatabas**
+
+SQL Elastisk pool : nej
+
+Basic
+
+**Azure pipeline SQL YAML**
+
+Tvungen skapa en subscripton mot Azure i Azure Devops
+
+Manage Service Connections -> New -> Azure -> Fyll i och döp subscription till något.
