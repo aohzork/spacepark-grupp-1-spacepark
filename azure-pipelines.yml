@@ -45,14 +45,14 @@ steps:
   inputs:
     command: custom
     custom: ef
-    arguments: 'migrations script -i -o migration.sql' - task: SqlAzureDacpacDeployment@1
+    arguments: 'migrations script -i -o migration.sql'
 
 - task: SqlAzureDacpacDeployment@1
-displayName: Install the database
-inputs:
-  azureSubscription: 'Free Trial'
-  ServerName: 'parkingspaceapi.database.windows.net'
-  DatabaseName: 'parkingspaceapi'
-  SqlUsername: 'swadmin'
-  SqlPassword: 'starwarsadmin1234!!'
-  DacpacFile: 'migration.sql'
+  displayName: Install the database
+  inputs:
+    azureSubscription: 'Free Trial'
+    ServerName: 'parkingspaceapi.database.windows.net'
+    DatabaseName: 'parkingspaceapi'
+    SqlUsername: 'swadmin'
+    SqlPassword: 'starwarsadmin1234!!'
+    DacpacFile: 'migration.sql'
