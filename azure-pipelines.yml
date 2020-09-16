@@ -50,7 +50,7 @@ steps:
 - task: SqlAzureDacpacDeployment@1
   displayName: Install the database
   inputs:
-    azureSubscription: 'Free Trial'
+    azureSubscription: 'bc7d71cf-f924-4c98-ad75-eb683e9a794f'
     ServerName: 'parkingspaceapi.database.windows.net'
     DatabaseName: 'parkingspaceapi'
     SqlUsername: 'swadmin'
