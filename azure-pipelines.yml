@@ -32,3 +32,27 @@ steps:
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Initialize EntityFrameworkCore'
+  inputs:
+    command: custom
+    custom: tool
+    arguments: 'install --global dotnet-ef'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Create migration'
+  inputs:
+    command: custom
+    custom: ef
+    arguments: 'migrations script -i -o migration.sql' - task: SqlAzureDacpacDeployment@1
+
+- task: SqlAzureDacpacDeployment@1
+displayName: Install the database
+inputs:
+  azureSubscription: 'Free Trial'
+  ServerName: 'parkingspaceapi.database.windows.net'
+  DatabaseName: 'parkingspaceapi'
+  SqlUsername: 'swadmin'
+  SqlPassword: 'starwarsadmin1234!!'
+  DacpacFile: 'migration.sql'
