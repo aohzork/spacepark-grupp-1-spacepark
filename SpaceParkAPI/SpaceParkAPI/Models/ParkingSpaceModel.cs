@@ -6,12 +6,14 @@ using System.Threading.Tasks;
 
 namespace SpaceParkAPI.Models
 {
-    public class ParkingSpace
+    public class ParkingSpaceModel
     {
         [Key]
         public long ID { get; set; }
-        public int ParkingLotId { get; set; }
-        public int SpaceShipId { get; set; }
+        public ParkingLotModel ParkingLotId { get; set; }
+        public SpaceshipModel SpaceShipId { get; set; }
+
+        
 
 
     }
