@@ -1,4 +1,6 @@
-﻿using SpaceParkAPI.Db_Context;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
+using SpaceParkAPI.Db_Context;
 using SpaceParkAPI.Models;
 using System;
 using System.Collections.Generic;
@@ -7,21 +9,25 @@ using System.Threading.Tasks;
 
 namespace SpaceParkAPI.Repos
 {
-    public class SpaceshipRepo : ISpaceshipRepo
+    public class SpaceshipRepo : Repository, ISpaceshipRepo
     {
-        public SpaceshipRepo(SpaceParkContext spaceParkContext) : base (spaceParkContext)
+        public SpaceshipRepo(SpaceParkContext spaceParkContext, ILogger<SpaceshipRepo> logger) : base(spaceParkContext, logger)
         { }
+
+        private static IQueryable<SpaceshipModel> SpaceshipQuery(IQueryable<SpaceshipModel> query)
+        {
+            return query;
+        }
 
         public async Task<SpaceshipModel> GetSpaceshipById(int id)
         {
-            //_logger.LogInformation($"Getting Spaceship with ID: {id}");
+            _logger.LogInformation($"Getting Spaceship with ID: {id}");
 
-            IQueryable<SpaceshipModel> query = spaceParkContext
-        }
+            IQueryable<SpaceshipModel> query = _spaceParkContext.SpaceshipModels.Where(s => s.ID == id);
 
-        public async Task<SpaceshipModel> GetSpaceshipByName()
-        {
-            throw new NotImplementedException();
+            query = SpaceshipQuery(query);
+
+            return await query.SingleOrDefaultAsync();
         }
     }
 }

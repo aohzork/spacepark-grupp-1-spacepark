@@ -6,9 +6,8 @@ using SpaceParkAPI.Models;
 
 namespace SpaceParkAPI.Repos
 {
-    public interface ISpaceshipRepo
+    public interface ISpaceshipRepo : IRepository
     {
         Task<SpaceshipModel> GetSpaceshipById(int id);
-        Task<SpaceshipModel> GetSpaceshipByName();
     }
 }
