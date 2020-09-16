@@ -1,13 +1,27 @@
-﻿using System;
+﻿using SpaceParkAPI.Db_Context;
+using SpaceParkAPI.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using SpaceParkAPI.Models;
 
 namespace SpaceParkAPI.Repos
 {
-    public interface ISpaceshipRepo : IDisposable
+    public class SpaceshipRepo : ISpaceshipRepo
     {
-        SpaceshipModel GetSpaceshipById();
+        public SpaceshipRepo(SpaceParkContext spaceParkContext) : base (spaceParkContext)
+        { }
+
+        public async Task<SpaceshipModel> GetSpaceshipById(int id)
+        {
+            //_logger.LogInformation($"Getting Spaceship with ID: {id}");
+
+            IQueryable<SpaceshipModel> query = spaceParkContext
+        }
+
+        public async Task<SpaceshipModel> GetSpaceshipByName()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
