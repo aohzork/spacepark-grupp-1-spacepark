@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace SpaceParkAPI.Repos
 {
-    interface IPersonRepo
+    interface IPersonRepo : IRepository
     {
     }
 }
