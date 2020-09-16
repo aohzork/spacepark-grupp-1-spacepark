@@ -11,5 +11,6 @@ namespace SpaceParkAPI.Models
         [Key]
         public long ID { get; set; }
         public long TotalAmount { get; set; }
+        public ICollection<ParkingSpaceModel> ParkingSpaces { get; set; }
     }
 }

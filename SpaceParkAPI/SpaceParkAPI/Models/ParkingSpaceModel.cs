@@ -9,12 +9,8 @@ namespace SpaceParkAPI.Models
     public class ParkingSpaceModel
     {
         [Key]
-        public long ID { get; set; }
-        public ParkingLotModel ParkingLotId { get; set; }
-        public SpaceshipModel SpaceShipId { get; set; }
-
-        
-
-
+        public long ID { get; set; }        
+        public ParkingLotModel ParkingLot { get; set; }
+        public SpaceshipModel SpaceShip { get; set; }
     }
 }

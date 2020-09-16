@@ -25,3 +25,11 @@ Vi började skapa en simpel build-pipeline, med .Net Core som build Target. Kopp
 ##### Azure Board Issues
 
 Fortsatte med skapa issues för olika ärenden både administrativa dokument samt olika kod issues.
+
+2020-09-16
+
+Fortsatt arbete med issues. 
+
+DB Context och models klara 
+
+Skapat första migration & devops pipeline för Databasen
