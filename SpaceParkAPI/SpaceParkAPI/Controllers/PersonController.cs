@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using SpaceParkAPI.Db_Context;
@@ -23,7 +24,21 @@ namespace SpaceParkAPI.Controllers
         [HttpGet("{name}")]
         public async Task<ActionResult<PersonModel>> GetPersonByName(string name)
         {
-            return new PersonModel { ID = 2, Name = $"{name}" };
+            try
+            {
+                var personResult = await _personRepo.GetPersonByName(name);
+                if (personResult==null)
+                {
+                    return NotFound($"Person with Name: {name} could not be found");
+                }
+
+                return Ok(personResult);
+            }
+            catch (Exception e)
+            {
+
+                return this.StatusCode(StatusCodes.Status500InternalServerError, $"Database Failure: {e.Message}");
+            }
         }
     }
 }
