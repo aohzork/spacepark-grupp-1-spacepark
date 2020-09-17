@@ -56,9 +56,11 @@ Fixat till appsettings.json.
 
 Fixat till .gitignore.
 
-Påbörjat controllers.
+Påbörjat controllers - Spaceship färdig (har läst på och konfigurerat dependency injection i startup för att det ska funka. Funkar lokalt med tom databas.).
 
-Sett till att context, startup och models är korrekta.
+Gjort klart spaceship models/repo/controller.
+
+Sett till att context, startup och models är korrekta so far.
 
 Börjat fundera över om vi vill göra en migration varje gång som det stått i den tutorial vi följt för att sätta upp EF i pipelinen.
 
