@@ -64,3 +64,9 @@ Börjat fundera över om vi vill göra en migration varje gång som det stått i
 
 Manage Service Connections -> New -> Azure -> Fyll i och döp subscription till något.
 
+Vägval, vad använda för frontend.
+Diskussion om att först använda Razorsharp. Sett följande film för att bilda en uppfattning:
+https://www.youtube.com/watch?v=68towqYcQlY
+
+Efter övervägande, valde istället statiskt hemsida med javascript. Detta pga att det finns en viss lärokurva att lära sig Razorpages, och lite tid kvar till projektet, men även att vi redan kan javascript.
+
