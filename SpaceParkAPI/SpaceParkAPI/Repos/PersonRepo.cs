@@ -14,9 +14,9 @@ namespace SpaceParkAPI.Repos
 {
     public class PersonRepo : Repository, IPersonRepo 
     {
+
         public PersonRepo(SpaceParkContext spaceParkContext, ILogger<PersonRepo> logger) : base(spaceParkContext, logger)
         { }
-
         private static IQueryable<PersonModel> PersonQuery(IQueryable<PersonModel> query)
         {
             return query;
