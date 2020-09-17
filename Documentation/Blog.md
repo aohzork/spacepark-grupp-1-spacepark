@@ -92,7 +92,7 @@ Eftersom man aldrig vill ha lösenord eller annan känslig information i sitt re
 
 I API:t har vi idag gått vidare med att se till att Db-Contexten är hyfsat korrekt uppsatt samt att göra våra modeller, repositories och controllers färdigt (struktur enligt MVC-mönstret, fast utan v (view)). I grunden fungerar det som så, t.ex. för en get-request, att controllern får information om att användaren vill hämta något, skickar vidare förfrågan till repositoryt som letar och hämtar upp informationen från databasen, lagrar den i en modell av datan som är fördefinierad i applikationen, och passar den vidare till controllern som skickar den vidare till användaren. Men för att få detta att fungera helt enligt vårat mönster måste man också se till att startup-delen av vår applikation har lagt in våra repositories och controllers bland sina "services". För att se till att det finns där går man in i den fil som heter "startup.cs" och i metoden "ConfigureServices" lägger man till några bitar kod som just lägger till de delar den behöver känna till. Detta är också ett steg som är viktigt i det som kallas "Dependency Injection" som används i vår struktur. Du kan läsa mer om det här om du är nyfiken :
 
-[Länk:]: https://jakeydocs.readthedocs.io/en/latest/mvc/controllers/dependency-injection.html	"Dependency Injection and Controllers"
+https://jakeydocs.readthedocs.io/en/latest/mvc/controllers/dependency-injection.html 
 
 Nedan är ett exempel på hur det kan se ut:
 
