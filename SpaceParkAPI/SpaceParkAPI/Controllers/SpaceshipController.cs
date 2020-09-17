@@ -1,15 +1,9 @@
-﻿using AutoMapper;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Infrastructure;
 using SpaceParkAPI.Models;
 using SpaceParkAPI.Repos;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http.Extensions;
-using Microsoft.AspNetCore.Authorization;
 
 namespace SpaceParkAPI.Controllers
 {
@@ -18,12 +12,10 @@ namespace SpaceParkAPI.Controllers
     public class SpaceshipController : ControllerBase
     {
         private readonly ISpaceshipRepo _spaceshipRepo;
-        //private readonly IMapper _mapper;
 
-        public SpaceshipController(ISpaceshipRepo spaceshipRepo /*IMapper mapper*/)
+        public SpaceshipController(ISpaceshipRepo spaceshipRepo)
         {
             _spaceshipRepo = spaceshipRepo;
-            //_mapper = mapper;
         }
 
         [HttpGet("{id}")]
