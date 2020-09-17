@@ -25,3 +25,23 @@ Vi började skapa en simpel build-pipeline, med .Net Core som build Target. Kopp
 ##### Azure Board Issues
 
 Fortsatte med skapa issues för olika ärenden både administrativa dokument samt olika kod issues.
+
+2020-09-16
+
+Fortsatt arbete med issues. 
+
+DB Context och models klara 
+
+Skapat första migration & devops pipeline för Databasen
+
+**SQLDatabas**
+
+SQL Elastisk pool : nej
+
+Basic
+
+**Azure pipeline SQL YAML**
+
+Tvungen skapa en subscripton mot Azure i Azure Devops
+
+Manage Service Connections -> New -> Azure -> Fyll i och döp subscription till något.
