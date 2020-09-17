@@ -107,10 +107,6 @@ Vi har testat att göra requests lokalt och än så länge så fungerar saker oc
 
 
 
-
-
-Gjort en första migration.
-
 Påbörjat controllers - Spaceship färdig (har läst på och konfigurerat dependency injection i startup för att det ska funka. Funkar lokalt med tom databas.).
 
 Börjat fundera över om vi vill göra en migration varje gång som det stått i den tutorial vi följt för att sätta upp EF i pipelinen.
@@ -123,3 +119,4 @@ https://www.youtube.com/watch?v=68towqYcQlY
 
 Efter övervägande, valde istället statiskt hemsida med javascript. Detta pga att det finns en viss lärokurva att lära sig Razorpages, och lite tid kvar till projektet, men även att vi redan kan javascript.
 
+***kvällsuppdatering:** Har gjort en hel del research på att bygga en statisk hemsida med javascript i azure devops pipeline och få den att köra med webservices i azure. Har till slut lyckats. Tog mitt slutprojekt i Frontendkursen och experimenterade med. Dessutom lyckades jag trigga pipeline 2 (bygga image och skicka upp till ARC), efter att pipeline1 byggts. https://statichtmlcatalogue.azurewebsites.net/
