@@ -44,4 +44,23 @@ Basic
 
 Tvungen skapa en subscripton mot Azure i Azure Devops
 
+2020-09-17
+
+Gjort en första migration.
+
+Fixat till connection string (hittades i azure-portalen).
+
+Tillåtit alla användare i brandväggen.
+
+Fixat till appsettings.json.
+
+Fixat till .gitignore.
+
+Påbörjat controllers.
+
+Sett till att context, startup och models är korrekta.
+
+Börjat fundera över om vi vill göra en migration varje gång som det stått i den tutorial vi följt för att sätta upp EF i pipelinen.
+
 Manage Service Connections -> New -> Azure -> Fyll i och döp subscription till något.
+
