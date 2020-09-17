@@ -1,9 +1,11 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using SpaceParkAPI.Db_Context;
 using SpaceParkAPI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 using System.Threading.Tasks;
 
 
@@ -15,13 +17,20 @@ namespace SpaceParkAPI.Repos
         public PersonRepo(SpaceParkContext spaceParkContext, ILogger<PersonRepo> logger) : base(spaceParkContext, logger)
         { }
 
-        private static IQueryable<PersonModel> SpaceshipQuery(IQueryable<PersonModel> query)
+        private static IQueryable<PersonModel> PersonQuery(IQueryable<PersonModel> query)
         {
             return query;
         }
-        public async Task<string> GetPersonName()
+        public async Task<PersonModel> GetPersonByName(String name)
         {
-            throw new NotImplementedException();
+            _logger.LogInformation($"Fetching personby selected name.");
+            
+            IQueryable<PersonModel> query = _spaceParkContext.PersonModels.Where(s => s.Name == name);
+
+            query = PersonQuery(query);
+
+            return await query.SingleOrDefaultAsync();
+
         }
     }
 }
