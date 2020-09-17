@@ -54,21 +54,11 @@ Tvungen skapa en subscripton mot Azure i Azure Devops
 
 Dagen började med att vi gav oss på att få till en koppling mellan vårat projekt med Entity Framework Core och SQL-databasen i Azure. Planen var även att vi skulle få till en första migration av databasen. För att få detta att fungera krävdes dock att några steg vidtogs innan:
 
-
-
-**1. Se till att vi hade rätt autentisieringsuppgifter**
-
-En av nycklarna i allt detta, som tog oss lite tid att förstå, var att vi behövde rätt uppgifter från azure för att få koppla upp oss. (Micael, fyll på här!)
-
-
-
-**2. Ställa in brandväggen i azure för att släppa igenom oss som utvecklare**
+**1. Ställa in brandväggen i azure för att släppa igenom oss som utvecklare**
 
 För att man ska få prata med resurserna i ett azure-konto så behöver man släppas igenom resursens brandvägg. I detta fallet var det brandväggen till databasservern. För att släppa igenom en IP-adress så går man in på serverresursen, trycker på "Firewalls and virtual networks" i menyraden till höger och skapar därefter en ny regel för den IP man vill släppa igenom. Det kan vara förvirrande eftersom det står att man ska ange en "start-ip" och en "slut-ip". Vad detta innebär är att man kan ställa in regler för intervaller av IP-adresser. Det är framförallt bra att kunna göra i miljöer där man vet att man har ett gäng ip-adresser som går i serie för att kunna släppa in alla dem och inte behöva göra en regel för varje enskild adress (tänk om du har 1000 stycken!!). Vi har inte en sådan miljö utan vi lade till varje enskild adress. Då skriver man IP:et som både "start" och "slut".
 
-
-
-**3. Se till att det finns en appsettings.json-fil i allas lokala projekt**
+**2. Se till att det finns en appsettings.json-fil i allas lokala projekt**
 
 För att vår applikation ska veta vart den ska koppla upp sin Db-context mot så valde vi att lägga en connectionstring i filen med detta namn i vårt projekt. Detta är praxis i många projekt som använder sig av databaser. Proceduren är helt enkelt som sådan att man skapar en .json-fil rakt i sitt projekt i visual studio och döper den till "appsettings.json". Idenna läggs sedan denna koden in:
 
@@ -80,13 +70,9 @@ För att vår applikation ska veta vart den ska koppla upp sin Db-context mot s�
 
 För att hitta rätt connection string till din azure-baserade sql-databas så går man in i databasresursen i sitt azure-konto. Därefter letar man upp databasservern bland sina resurser och går in på själva databasen. I menyn till höger finns ett manyalternativ som heter "Connection strings". Klickar du där så kan du se den och kopiera över den till din .json-fil.
 
-
-
-**4. Att sagda .json-fil läggs till i .gitignore**
+**3. Att sagda .json-fil läggs till i .gitignore**
 
 Eftersom man aldrig vill ha lösenord eller annan känslig information i sitt repository så är det viktigt att filer som innehåller sådan information inte spåras av det versionshanteringsverktyg man använder. Eftersom vi använder oss av git så lade vi till filen i den fil som heter ".gitignore". Allt som finns med i den filen ignoreras av git. Eftersom .gitignore filen också pushas upp i remote repot så innebär det att endast en person behöver lägga till vad som ska ignoras och sedan sprider det sig till övrig användare som hämtar ned den.
-
-
 
 **SpaceParkAPI**
 
@@ -113,7 +99,7 @@ Börjat fundera över om vi vill göra en migration varje gång som det stått i
 
 Manage Service Connections -> New -> Azure -> Fyll i och döp subscription till något.
 
-Vägval, vad använda för frontend.
+**Vägval, vad använda för frontend.**
 Diskussion om att först använda Razorsharp. Sett följande film för att bilda en uppfattning:
 https://www.youtube.com/watch?v=68towqYcQlY
 
