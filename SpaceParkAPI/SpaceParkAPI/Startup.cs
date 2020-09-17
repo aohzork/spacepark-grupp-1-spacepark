@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using SpaceParkAPI.Db_Context;
+using SpaceParkAPI.Repos;
 
 namespace SpaceParkAPI
 {
@@ -28,6 +29,7 @@ namespace SpaceParkAPI
         {
             services.AddControllers();
             services.AddDbContext<SpaceParkContext>();
+            services.AddScoped<IParkingSpaceRepo, ParkingSpaceRepo>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
