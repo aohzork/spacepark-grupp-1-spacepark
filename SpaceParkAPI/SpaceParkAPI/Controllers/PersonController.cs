@@ -21,9 +21,9 @@ namespace SpaceParkAPI.Controllers
         }
 
         [HttpGet("{name}")]
-        public async Task<ActionResult<PersonModel>> GetPersonByName()
+        public async Task<ActionResult<PersonModel>> GetPersonByName(string name)
         {
-            return new PersonModel { ID = 2, Name = "Sebastian" };
+            return new PersonModel { ID = 2, Name = $"{name}" };
         }
     }
 }

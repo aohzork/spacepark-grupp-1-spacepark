@@ -28,6 +28,7 @@ namespace SpaceParkAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddScoped<IPersonRepo,PersonRepo>();
             services.AddDbContext<SpaceParkContext>();
         }
 
