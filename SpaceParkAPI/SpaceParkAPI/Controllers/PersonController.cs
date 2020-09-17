@@ -7,5 +7,15 @@ using SpaceParkAPI.Models;
 
 namespace SpaceParkAPI.Controllers
 {
-   
+    [ApiController]
+    [Route("api/[controller]")]
+    public class PersonController : ControllerBase
+    {
+
+        [HttpGet("{name}")]
+        public async Task<ActionResult<PersonModel>> GetPersonByName()
+        {
+            return null;
+        }
+    }
 }
