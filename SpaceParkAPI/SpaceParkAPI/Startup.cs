@@ -12,6 +12,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using SpaceParkAPI.Repos;
 using SpaceParkAPI.Db_Context;
+using SpaceParkAPI.Repos;
 
 namespace SpaceParkAPI
 {
@@ -29,6 +30,7 @@ namespace SpaceParkAPI
         {
             services.AddControllers();
             services.AddScoped<IPersonRepo,PersonRepo>();
+            services.AddScoped<ISpaceshipRepo, SpaceshipRepo>();
             services.AddDbContext<SpaceParkContext>();
         }
 
