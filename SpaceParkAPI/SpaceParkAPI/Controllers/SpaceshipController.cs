@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 
 namespace SpaceParkAPI.Controllers
 {
+    [Route("spapi/v1.0/[controller]")]
+    [ApiController]
     public class SpaceshipController : ControllerBase
     {
         private readonly ISpaceshipRepo _spaceshipRepo;
