@@ -82,12 +82,12 @@ https://jakeydocs.readthedocs.io/en/latest/mvc/controllers/dependency-injection.
 
 Nedan är ett exempel på hur det kan se ut:
 
-`public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddControllers();
-            services.AddScoped<ISpaceshipRepo, SpaceshipRepo>();
-            services.AddDbContext<SpaceParkContext>();
-        } `
+`public void ConfigureServices(IServiceCollection services)`
+       `{`
+            `services.AddControllers();`
+            `services.AddScoped<ISpaceshipRepo, SpaceshipRepo>();`
+            `services.AddDbContext<SpaceParkContext>();`
+        `}`
 
 Vi har testat att göra requests lokalt och än så länge så fungerar saker och ting som tänkt.
 
