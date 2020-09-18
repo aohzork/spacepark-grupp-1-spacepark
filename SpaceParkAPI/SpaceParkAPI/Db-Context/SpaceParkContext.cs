@@ -44,17 +44,6 @@ namespace SpaceParkAPI.Db_Context
             }); ;
 
 
-            builder.Entity<PersonModel>().ToTable("Persons");
-            builder.Entity<PersonModel>().HasKey(p => p.ID);
-            builder.Entity<PersonModel>().HasData(new
-            {
-                ID = (long)1,
-                Name = "sebastian"
-            }, new
-            {
-                ID = (long)2,
-                Name = "Eric"
-            }); ;
         }
     }
 }
