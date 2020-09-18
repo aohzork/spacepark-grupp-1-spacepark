@@ -47,7 +47,7 @@ namespace SpaceParkAPI.Controllers
             try
             {
                 _personRepo.Add(personModel);
-                if(await _personRepo.Save())
+                if (await _personRepo.Save())
                 {
                     return Created($"/api/v1.0/Person/{personModel.ID}", personModel);
                 }
@@ -55,6 +55,31 @@ namespace SpaceParkAPI.Controllers
             catch (Exception e)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, $"Database Failure: {e.Message}");
+            }
+            return BadRequest();
+        }
+
+        [HttpDelete("{name}")]
+        public async Task<ActionResult> DeletePerson(string name)
+        {
+            try
+            {
+                var personToDelete = await _personRepo.GetPersonByName(name);
+                if (personToDelete == null)
+                {
+                    return NotFound($"There is no person with that name in the database");
+                }
+
+                _personRepo.Delete(personToDelete);
+
+                if (await _personRepo.Save())
+                {
+                    return Ok($"You deleted the person: {personToDelete.Name.ToString()} from the database");
+                }
+            }
+            catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Database Failure:{e.Message}");
             }
             return BadRequest();
         }
