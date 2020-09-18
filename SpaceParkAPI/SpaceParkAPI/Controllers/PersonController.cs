@@ -27,7 +27,7 @@ namespace SpaceParkAPI.Controllers
             try
             {
                 var personResult = await _personRepo.GetPersonByName(name);
-                if (personResult==null)
+                if (personResult == null)
                 {
                     return NotFound($"Person with Name: {name} could not be found");
                 }
@@ -49,7 +49,7 @@ namespace SpaceParkAPI.Controllers
                 _personRepo.Add(personModel);
                 if(await _personRepo.Save())
                 {
-                    return Created($"/api/v1.0/Persons/{personModel.ID}", personModel);
+                    return Created($"/api/v1.0/Person/{personModel.ID}", personModel);
                 }
             }
             catch (Exception e)
