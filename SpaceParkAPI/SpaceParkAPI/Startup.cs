@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using SpaceParkAPI.Repos;
 using SpaceParkAPI.Db_Context;
 using SpaceParkAPI.Repos;
 
@@ -28,6 +29,7 @@ namespace SpaceParkAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddScoped<IPersonRepo,PersonRepo>();
             services.AddScoped<ISpaceshipRepo, SpaceshipRepo>();
             services.AddDbContext<SpaceParkContext>();
             services.AddScoped<IParkingSpaceRepo, ParkingSpaceRepo>();
