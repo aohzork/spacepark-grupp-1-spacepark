@@ -10,12 +10,12 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  newdBuildDirectory: '$(build.sourcesDirectory)\SpaceParkAPI\SpaceParkFrontend\'
+  #newdBuildDirectory: '$(build.sourcesDirectory)\SpaceParkAPI\SpaceParkFrontend\'
 
 steps:
 - task: ArchiveFiles@2
   inputs:
-    rootFolderOrFile: '$(newdBuildDirectory)'
-    #rootFolderOrFile: '$(build.sourcesDirectory)'
+    #rootFolderOrFile: '$(newdBuildDirectory)'
+    rootFolderOrFile: '$(build.sourcesDirectory)'
     includeRootFolder: false
 - task: PublishBuildArtifacts@1
