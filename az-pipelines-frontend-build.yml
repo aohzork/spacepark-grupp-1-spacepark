@@ -9,9 +9,12 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
+newdBuildDirectory: '$(build.sourcesDirectory)\SpaceParkAPI\SpaceParkFrontend'
+
 steps:
 - task: ArchiveFiles@2
   inputs:
-    rootFolderOrFile: '$(build.sourcesDirectory)'
+    #rootFolderOrFile: '$(build.sourcesDirectory)'
+    rootFolderOrFile: '$(newdBuildDirectory)'
     includeRootFolder: false
 - task: PublishBuildArtifacts@1
