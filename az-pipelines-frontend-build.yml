@@ -9,7 +9,7 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
-newdBuildDirectory: '$(build.sourcesDirectory)\SpaceParkAPI\SpaceParkFrontend'
+newdBuildDirectory: '$(build.sourcesDirectory)\SpaceParkAPI\SpaceParkFrontend\'
 
 steps:
 - task: ArchiveFiles@2
