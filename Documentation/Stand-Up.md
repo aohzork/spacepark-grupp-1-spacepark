@@ -1,5 +1,49 @@
 **Stand-Up **
 
+**18/9 2020 (Direktörn'):**
+
+Gemensamt:
+
+- Hur ska URLn se ut. (spapi/v1.0/spacehip/x-wing)
+
+
+
+Andreas:
+
+- Fortsätta med Issue 42, göra klart Put/post & Delete
+
+- läsa på till måndagens lektion
+
+  
+
+Micael:
+
+- issue 44, struktur på frontend
+- börja kolla på att konfigurera det i Azure DevOps
+
+Erik: 
+
+- Lägga till NewtonSoft i projektet
+- Göra issue 70, Put & Delete på Person Controllern
+
+
+
+Sebastian:
+
+- Testdata till databasen
+- Skriva tester för PersonRepo
+
+
+
+Hampus: 
+
+- Unittester för SpaceShipRepo (issue 62)
+- Put/post/delete för spaceshipController
+
+
+
+**Stand-Up **
+
 **17/9 2020 (Hampus):**
 
 Gemensamt:
@@ -37,8 +81,6 @@ Hampus:
 
 - issue 26 och 50 skapa repo och controller för spaceship.
 - issue 62 börja med unit test till spaceship repo
-
-
 
 
 
