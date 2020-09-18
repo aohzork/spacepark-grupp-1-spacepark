@@ -12,7 +12,7 @@ using SpaceParkAPI.Repos;
 namespace SpaceParkAPI.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/v1.0/[controller]")]
     public class PersonController : ControllerBase
     {
         private readonly IPersonRepo _personRepo;
