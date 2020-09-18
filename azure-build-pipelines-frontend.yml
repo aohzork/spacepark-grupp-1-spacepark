@@ -24,6 +24,5 @@ steps:
 - task: ArchiveFiles@2
   inputs:
     rootFolderOrFile: '$(build.artifactstagingdirectory)'
-    #rootFolderOrFile: '$(build.sourcesDirectory)'
     includeRootFolder: false
 - task: PublishBuildArtifacts@1
