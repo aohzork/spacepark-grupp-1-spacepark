@@ -92,7 +92,7 @@ Nedan är ett exempel på hur det kan se ut:
             
             services.AddDbContext<SpaceParkContext>();
             
-        }`
+        }
 
 Vi har testat att göra requests lokalt och än så länge så fungerar saker och ting som tänkt.
 
