@@ -10,7 +10,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  newdBuildDirectory: '$(build.sourcesDirectory)\SpaceParkFrontend\'
+  newdBuildDirectory: '**/SpaceParkFrontend*'
 
 steps:
 - task: ArchiveFiles@2
