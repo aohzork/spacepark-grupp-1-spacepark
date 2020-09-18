@@ -25,7 +25,7 @@ namespace SpaceParkAPI.Repos
         {
             _logger.LogInformation($"Fetching person by the selected name {name}.");
             
-            IQueryable<PersonModel> query = _spaceParkContext.PersonModels.Where(x => x.Name == name);
+            IQueryable<PersonModel> query = _spaceParkContext.Persons.Where(x => x.Name == name);
 
             query = PersonQuery(query);
 

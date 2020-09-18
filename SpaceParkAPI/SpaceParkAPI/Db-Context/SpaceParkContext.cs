@@ -20,12 +20,30 @@ namespace SpaceParkAPI.Db_Context
 
         public virtual DbSet<ParkingLotModel> ParkingLots { get; set; }
         public virtual DbSet<ParkingSpaceModel> ParkingSpaces { get; set; }
-        public virtual DbSet<PersonModel> PersonModels { get; set; }
-        public virtual DbSet<SpaceshipModel> SpaceshipModels { get; set; }
+        public virtual DbSet<PersonModel> Persons { get; set; }
+        public virtual DbSet<SpaceshipModel> Spaceships { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(_configuration.GetConnectionString("DefaultConnection"));
+        }
+
+        
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.Entity<PersonModel>().ToTable("Persons");
+            builder.Entity<PersonModel>().HasKey(p => p.ID);
+            builder.Entity<PersonModel>().HasData(new
+            {
+                ID = (long)1,
+                Name = "sebastian"
+            }, new
+            {
+                ID = (long)2,
+                Name = "Eric"
+            }); ;
+
+
         }
     }
 }

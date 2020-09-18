@@ -21,7 +21,7 @@ namespace SpaceParkAPI.Repos
         {
             _logger.LogInformation($"Getting Spaceship with ID: {id}");
 
-            IQueryable<SpaceshipModel> query = _spaceParkContext.SpaceshipModels.Where(s => s.ID == id);
+            IQueryable<SpaceshipModel> query = _spaceParkContext.Spaceships.Where(s => s.ID == id);
 
             query = SpaceshipQuery(query);
 
