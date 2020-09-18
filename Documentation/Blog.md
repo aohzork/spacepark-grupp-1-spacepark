@@ -82,7 +82,7 @@ https://jakeydocs.readthedocs.io/en/latest/mvc/controllers/dependency-injection.
 
 Nedan är ett exempel på hur det kan se ut:
 
-`public void ConfigureServices(IServiceCollection services)
+public void ConfigureServices(IServiceCollection services)
 
         {
        
