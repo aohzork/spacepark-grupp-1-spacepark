@@ -23,7 +23,7 @@ namespace SpaceParkAPI.Repos
         }
         public async Task<PersonModel> GetPersonByName(String name)
         {
-            _logger.LogInformation($"Fetching personby selected name.");
+            _logger.LogInformation($"Fetching person by the selected name {name}.");
             
             IQueryable<PersonModel> query = _spaceParkContext.PersonModels.Where(x => x.Name == name);
 
