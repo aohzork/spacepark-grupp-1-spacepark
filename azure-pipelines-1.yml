@@ -16,7 +16,7 @@ steps:
 
 - task: CopyFiles@2
   inputs:
-    SourceFolder: '\SpaceParkFrontend'
+    SourceFolder: 'SpaceParkFrontend'
     Contents: '**'
     TargetFolder: '$(build.artifactstagingdirectory)'
     OverWrite: true
