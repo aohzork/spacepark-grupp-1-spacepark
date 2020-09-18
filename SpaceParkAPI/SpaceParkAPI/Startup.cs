@@ -30,6 +30,7 @@ namespace SpaceParkAPI
             services.AddControllers();
             services.AddScoped<ISpaceshipRepo, SpaceshipRepo>();
             services.AddDbContext<SpaceParkContext>();
+            services.AddScoped<IParkingSpaceRepo, ParkingSpaceRepo>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
