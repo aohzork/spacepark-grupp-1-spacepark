@@ -59,26 +59,29 @@ Ibland är detta önskvärt, men problem uppstår dock då en viss pipeline mås
 För att vårt API skulle lyckats laddas upp i ACR på Azure Portal behövde följande steg ske:
 
 1. En pipeline (pipeline 1) som bygger vår lösning och kör automatiska tester
-2. En pipeline (pipeline 2) som bygger en Docker image med **Tag: build-number** och laddar upp i ett ARC.
+2. En pipeline (pipeline 2) som bygger en Docker image med **Tag: Build.buildnumber** och laddar upp i ett ACR.
 3. Pipeline 2 skall endast bygga en  Docker image om pipeline 1 lyckas.
 
-Genom att vi ville ha pipeline 2 frikopplad från pipeline 1 uppstod ett problem då båda pipelinesen körde parallellt oberoende om den ena pipelinen lyckades eller ej. Lösningen var att länka ihop pipelinesen genom att i .yml trigga igång den andra pipelinen efter att första lyckats. En hel del research gjordes och slutligen hittades en lösning i följande dokumentation [Configure pipeline triggers - Azure Pipelines | Microsoft](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/pipeline-triggers?view=azure-devops&tabs=yaml).
+Genom att vi ville ha pipeline 2 frikopplad från pipeline 1 uppstod ett problem då båda pipelinesen körde parallellt oberoende om den ena pipelinen lyckades eller ej. Lösningen var att länka ihop pipelinesen genom att i .yml trigga igång den andra pipelinen efter att första lyckats. En hel del research gjordes och slutligen hittades en lösning i följande dokumentation [Configure pipeline triggers - Azure Pipelines | Microsoft](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/pipeline-triggers?view=azure-devops&tabs=yaml). Koden läggs under den kommenterade texten som finns överst i .ymlfilen.
 
-Översatt till lättare pseudokod som används i vår lösning:
+Översatt till lättare pseudokod som används i vår lösning samt ett tillägg:
+`Pipeline2.yml`
+
+```
+trigger:none
 
 resources:
   pipelines:
+	-pipeline: pipeline1-hitta-på-namn   # Name of the pipeline resource
+	source: Pipeline1 # Name of the pipeline referenced by the pipeline resource
+	trigger: 
+  		branches:
+		-master
+```
 
-  - pipeline: securitylib   # Name of the pipeline resource
-    source: security-lib-ci # Name of the pipeline referenced by the pipeline resource
-    trigger: 
-      branches:
-      - releases/*
-      - master
+*Trigger: none* är tillägget som gör att pipeline2 endast triggas efter pipeline 1 har passerat OK. Utan detta tillägg, körde Pipeline2 ändå samtidigt som Pipeline1 av någon anledning.
 
-
-
-
+Vad som händer sedan är att pipeline1 körs, som  triggas av master. Därefter fortsätter Steps och Tasks precis som vanligt i Pipeline2.yml.
 
 ## Bygga pipelines utefter olika kataloger i Github-repo
 
