@@ -127,3 +127,45 @@ Hampus:
 
 - Sätta sig in i projektet.
 
+
+
+**Stand-Up **
+
+**21/9 2020 (Eric):**
+
+Gemensamt:
+
+- -
+
+
+
+Andreas:
+
+- Pilla med frontend
+
+
+
+Micael:
+
+- Kika på tester
+
+
+
+Eric: 
+
+- Hugga tag i frontend
+
+
+
+Sebastian:
+
+- Kika på tester
+
+
+
+Hampus: 
+
+- SpaceShip Controller
+
+
+
