@@ -54,7 +54,7 @@ trigger:
 
 Ibland är detta önskvärt, men problem uppstår dock då en viss pipeline måste köra klart innan en annan pipeline kan köra. I vårt fall vår **bygg och test-pipeline för vårt API**.
 
-### Vår pipelinelösning
+### Vår pipelinelösning för vårt API
 
 För att vårt API skulle lyckats laddas upp i ACR på Azure Portal behövde följande steg ske:
 
