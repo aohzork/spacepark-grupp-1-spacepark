@@ -18,6 +18,7 @@ namespace SpaceParkAPI.Controllers
             _spaceshipRepo = spaceshipRepo;
         }
 
+        //spapi/v1.0/Spaceship/##
         [HttpGet("{id}")]
         public async Task<ActionResult<SpaceshipModel>> GetSpaceshipById(int id)
         {
@@ -35,6 +36,25 @@ namespace SpaceParkAPI.Controllers
             {
                 return this.StatusCode(StatusCodes.Status500InternalServerError, $"Database Failure: {e.Message}");
             }
+        }
+
+        //spapi/v1.0/Spaceship
+        [HttpPost]
+        public async Task<ActionResult<PersonModel>> PostEvent(SpaceshipModel spaceshipModel)
+        {
+            try
+            {
+                _spaceshipRepo.Add(spaceshipModel);
+                if (await _spaceshipRepo.Save())
+                {
+                    return Created($"/api/v1.0/Spaceship/{spaceshipModel.ID}", spaceshipModel);
+                }
+            }
+            catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Database Failure: {e.Message}");
+            }
+            return BadRequest();
         }
     }
 }
