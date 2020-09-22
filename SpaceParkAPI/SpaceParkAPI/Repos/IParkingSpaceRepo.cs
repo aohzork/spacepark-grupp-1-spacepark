@@ -9,6 +9,7 @@ namespace SpaceParkAPI.Repos
     public interface IParkingSpaceRepo : IRepository
     {
         Task<ParkingSpaceModel> GetParkingSpaceById(int id);
+       
 
     }
 }
