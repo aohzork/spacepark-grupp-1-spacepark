@@ -6,3 +6,65 @@
     margin: 0;
     padding: 0;
 }
+
+
+/**************************************
+                Background Image
+**************************************/
+html { 
+  background: url("../img/ozon1.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/**************************************
+                END Background Image
+**************************************/
+
+.mainContent{
+    background-color: aqua;
+    width: 500px;
+    margin-top: 40px;
+}
+
+.mainContent h1, h3{
+    text-align: center;
+    padding-top: 10px;
+}
+
+.buttons{
+    display: flex;
+    justify-content: center;
+}
+
+.inputElements{
+    margin-top: 30px;
+    height: 120px;
+    background-color: azure;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputElements input{
+    width: 70%;
+    margin-top: 10px;
+}
+
+.inputElements button{
+    margin-top: 10px;
+}
+
+
+  
+    
+
+
