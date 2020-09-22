@@ -1,4 +1,4 @@
 
 
-let minvar = IsParked("");
+let minvar = IsParked("Eric");
 console.log(minvar);
