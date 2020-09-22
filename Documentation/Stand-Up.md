@@ -1,6 +1,47 @@
 **Stand-Up **
 
-**18/9 2020 (Direktörn'):**
+**22/9 2020 (Sebastian):**
+
+Gemensamt:
+
+- Planera pipelines 
+- skissa upp kommande pipeline 
+
+
+
+Andreas:
+
+- Frontend 
+
+  
+
+
+Micael:
+
+- issue 98 test för parkinglotrepo
+- issue 97 test för parkinglot controller
+
+Erik: 
+
+- Frontend
+
+
+
+Sebastian:
+
+- API-calls to swapi i js
+
+
+
+Hampus: 
+
+- issue 26 put för spaceship controller
+
+
+
+**Stand-Up **
+
+**18/9 2020 (Andreas'):**
 
 Gemensamt:
 
