@@ -19,7 +19,7 @@ namespace SpaceParkAPI.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<SpaceshipModel>> GetSpaceshipById(int id)
+        public async Task<ActionResult<SpaceshipModel>> GetSpaceshipById(long id)
         {
             try
             {
@@ -36,5 +36,32 @@ namespace SpaceParkAPI.Controllers
                 return this.StatusCode(StatusCodes.Status500InternalServerError, $"Database Failure: {e.Message}");
             }
         }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<SpaceshipModel>> DeleteSpaceship(long id)
+        {            
+            try
+            {
+                var spaceship = await _spaceshipRepo.GetSpaceshipById(id);
+
+                if (spaceship == null)
+                {
+                    return NotFound($"Couldn't find any spaceship with id: {id}");
+                }
+
+                _spaceshipRepo.Delete(spaceship);
+
+                if (await _spaceshipRepo.Save())
+                {
+                    return NoContent();
+                }
+            }
+            catch (Exception e)
+            {
+                return this.StatusCode(StatusCodes.Status500InternalServerError, $"Database Failure: {e.Message}");
+            }
+            return BadRequest();
+        }
+
     }
 }

@@ -17,11 +17,11 @@ namespace SpaceParkAPI.Repos
             return query;
         }
 
-        public async Task<SpaceshipModel> GetSpaceshipById(int id)
+        public async Task<SpaceshipModel> GetSpaceshipById(long id)
         {
             _logger.LogInformation($"Getting Spaceship with ID: {id}");
 
-            IQueryable<SpaceshipModel> query = _spaceParkContext.Spaceships.Where(s => s.ID == id);
+            IQueryable<SpaceshipModel> query = _spaceParkContext.Spaceships.Where(s => s.ID == id).Include(p => p.Person);
 
             query = SpaceshipQuery(query);
 
