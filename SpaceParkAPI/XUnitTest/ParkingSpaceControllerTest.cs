@@ -18,8 +18,8 @@ namespace XUnitTest
 {
     public class ParkingSpaceControllerTest
     {
-        [Fact]
-        public async Task ForSession_ReturnsIdeasForSession()
+        [Fact]        
+        public async Task GetParkingSpaceById_Status200OKIsType_ReturnedIdEqualsInput()
         {
             // Arrange
             int testParkingSpaceId = 1;
@@ -35,7 +35,8 @@ namespace XUnitTest
             var returnValue = Assert.IsType<ParkingSpaceModel>(okResult.Value);
             var parkingSpace = returnValue;
             Assert.Equal(1, parkingSpace.ID);
-        }
+            Assert.Contains(1.ToString(), parkingSpace.ID.ToString());
+        }   
 
         private ParkingSpaceModel GetTestSession()
         {
@@ -46,38 +47,5 @@ namespace XUnitTest
 
             return session;
         }
-
-        //[Fact]
-        //public async Task ForSession_ReturnsIdeasForSession()
-        //{
-        //    // Arrange
-        //    int testSessionId = 123;
-        //    var mockRepo = new Mock<IBrainstormSessionRepository>();
-        //    mockRepo.Setup(repo => repo.GetByIdAsync(testSessionId)).Returns(Task.FromResult(GetTestSession()));
-        //    var controller = new IdeasController(mockRepo.Object);
-
-        //    // Act
-        //    var result = await controller.ForSession(testSessionId);
-
-        //    // Assert
-        //    var okResult = Assert.IsType<OkObjectResult>(result);
-        //    var returnValue = Assert.IsType<List<IdeaDTO>>(okResult.Value);
-        //    var idea = returnValue.FirstOrDefault();
-        //    Assert.Equal("One", idea.Name);
-        //}
-
-        //private BrainstormSession GetTestSession()
-        //{
-        //    var session = new BrainstormSession()
-        //    {
-        //        DateCreated = new DateTime(2016, 7, 2),
-        //        Id = 1,
-        //        Name = "Test One"
-        //    };
-
-        //    var idea = new Idea() { Name = "One" };
-        //    session.AddIdea(idea);
-        //    return session;
-        //}
     }
 }
