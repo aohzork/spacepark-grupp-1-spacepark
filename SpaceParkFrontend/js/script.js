@@ -1,4 +1,3 @@
 
 
-let minvar = IsParked("Eric");
-console.log(minvar);
+console.log(IsParked("Eric"));
