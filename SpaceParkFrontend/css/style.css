@@ -6,3 +6,116 @@
     margin: 0;
     padding: 0;
 }
+
+
+/**************************************
+                Background Image
+**************************************/
+html { 
+  background: url("../img/ozon1.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/**************************************
+                END Background Image
+**************************************/
+
+/**************************************
+               Main Content
+**************************************/
+h1{
+    font-size: 110px;
+}
+
+h2{
+    font-size: 50px;
+}
+
+
+.mainContent{
+    width: 500px;
+    margin-top: 30%;
+}
+
+.mainContent h1, h2{
+    font-family: 'Noto Sans JP', sans-serif;
+    font-family: 'Orbitron', sans-serif;
+    font-family: 'Rajdhani', sans-serif;
+    text-align: center;
+    color: white;
+}
+
+
+
+/**Park Unpark**/
+.buttons{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+/**END Park Unpark**/
+
+/**Form**/
+
+.inputElements{
+    margin-top: 30px;
+    padding: 30px 0px 30px 0px;
+    height: 120px;
+    border-top: 2px solid white;
+    border-bottom: 2px solid rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputElements input{
+    width: 70%;
+    margin-top: 10px;
+}
+
+.inputElements button{
+    margin: 10px 0px 10px 0px;
+}
+/**END Form**/
+
+ /****Logo***/
+
+.logoContainer{
+    display: flex;
+    justify-content: center;
+}
+
+.logo{
+    width: 100px;
+    height: 100px;
+    margin-top: 30px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo img{
+    max-width: 75%;
+    max-height: 75%;
+}
+
+/***End Logo**/
+
+
+/**************************************
+                END Main Content
+**************************************/
+
+  
+    
+
+

@@ -64,7 +64,7 @@ För att vårt API skulle lyckats laddas upp i ACR på Azure Portal behövde fö
 
 Genom att vi ville ha pipeline 2 frikopplad från pipeline 1 uppstod ett problem då båda pipelinesen körde parallellt oberoende om den ena pipelinen lyckades eller ej. Lösningen var att länka ihop pipelinesen genom att i .yml trigga igång den andra pipelinen efter att första lyckats. En hel del research gjordes och slutligen hittades en lösning i följande dokumentation [Configure pipeline triggers - Azure Pipelines | Microsoft](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/pipeline-triggers?view=azure-devops&tabs=yaml). Koden läggs under den kommenterade texten som finns överst i .ymlfilen.
 
-Översatt till lättare pseudokod som används i vår lösning samt ett tillägg:
+*Översatt till lättare pseudokod som används i vår lösning samt ett tillägg:*
 `Pipeline2.yml`
 
 ```
@@ -79,7 +79,7 @@ resources:
 		-master
 ```
 
-*Trigger: none* är tillägget som gör att pipeline2 endast triggas efter pipeline 1 har passerat OK. Utan detta tillägg, körde Pipeline2 ändå samtidigt som Pipeline1 av någon anledning.
+<u>*Trigger: none*</u> är tillägget som gör att pipeline2 endast triggas efter pipeline 1 har passerat OK. Utan detta tillägg, körde Pipeline2 ändå samtidigt som Pipeline1 av någon anledning.
 
 Vad som händer sedan är att pipeline1 körs, som  triggas av master. Därefter fortsätter Steps och Tasks precis som vanligt i Pipeline2.yml.
 
@@ -90,3 +90,12 @@ Vad som händer sedan är att pipeline1 körs, som  triggas av master. Därefter
 ## Release Pipeline
 
 ## Utmaningar
+
+Vilket sätt är rätt? Det finns nog inget svar på detta eftersom att det går att göra på flera olika sätt och möjligheten hur man kombinerar dessa sätt är oändliga. Vissa väljer att lägga in massvis med kod och kör allt i sin .yml fil. Andra föredrar classic pipeline och jobba agenter och via det visuella, medan det slutligen även går att göra både och. Bygga flera olika pipelines eller en enda lång. Det är inte konstigt om det skulle finnas personer som endast sitter med Azure Devops på heltid. Den största utmaningen var att förstå hur allt hänger ihop. Att du kan bygga på en .yml-fil (efter du skapat den), med massa olika steps och tasks. Du kan även länka in config-filer och flera andra typer av filer som du anger i .yml-filen. Det hjälpte att ha egna testprojekt vid sidan om huvudprojektet där det gick att sitta och experimentera sig fram vad olika tasks och variabler gjorde.
+
+Vad gäller Releas-pipelinen är det samma där. Du kan kombinera olika agenter, steps och tasks som i slutändan resulterar i en enda release. Kombinationerna även där är oändliga.
+
+Boards var ett bra verktyg med subtasks som visades tydligt samt att det var bra att samla så  mycket som möjligt på ett enda ställe. Samtidigt kanske du ha din kanban fristående alla olika Devops-system.
+
+Hur du väljer att publicera din applikation(er) via devops är en svår fråga. Det går nog inte att hitta ett enda optimalt sätt. utan det är helt beroende på dina behov, din budget, din applikation och slutligen din kreativitet och subjektivitet.
+
