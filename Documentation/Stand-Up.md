@@ -1,6 +1,109 @@
 **Stand-Up **
 
-**18/9 2020 (Direktörn'):**
+**23/9 2020 (Hampus):**
+
+Gemensamt:
+
+- Godkänna layout på powerpoint presentation.
+  - Beslut:
+    - Vi kommer ha en slide var att bygga.
+    - Micael delar layouten/bilden till respektive gruppmedlem.
+    - Om man behöver flera slides så duplicera den du har.
+    - Var och en får spela in sin del själv och skicka till Micael.
+    - Micael kommer att redigera själva filmpresentationen.
+    - Deadline: Lördag  3/10. (Gärna så tidigt som möjligt!)
+- Gå igenom pull-requests
+
+
+
+Andreas:
+
+- Ska göra en push på Park/Unpark Issue: 
+
+- Issue 91: Parkera ett rymdskepp (Frontend)
+
+  
+
+
+Micael:
+
+- Tester:
+  - Blandade issues.
+  - Ska börja med att få Issue 98 att funka.
+  - Kommer lägga upp Issues för fler tester.
+- Skriva dokumentation.
+
+
+
+Erik: 
+
+- Fortsätter med frontend.
+- Kommer att plocka issues relaterat till detta.
+
+
+
+Sebastian:
+
+- Issue 42: Parkingspace requests
+- Issue 104: Göra en post-request till vår API via JavaScript
+- Lägga till och göra issue för spaceships till dropdown-meny i frontend.
+
+
+
+Hampus: 
+
+- Göra klart Issue 90: Kontrollera om person är parkerad
+
+- Skriva dokumentation med Micael
+
+- Skapa Issue och gör: lägg till CORS i backend.
+
+  
+
+**Stand-Up **
+
+**22/9 2020 (Sebastian):**
+
+Gemensamt:
+
+- Planera pipelines 
+- skissa upp kommande pipeline 
+
+
+
+Andreas:
+
+- Frontend 
+
+  
+
+
+Micael:
+
+- issue 98 test för parkinglotrepo
+- issue 97 test för parkinglot controller
+
+Erik: 
+
+- Frontend
+
+
+
+Sebastian:
+
+- API-calls to swapi i js
+
+
+
+Hampus: 
+
+- issue 26 put för spaceship controller
+
+
+
+**Stand-Up **
+
+**18/9 2020 (Andreas'):**
 
 Gemensamt:
 
@@ -126,4 +229,46 @@ Sebastian:
 Hampus: 
 
 - Sätta sig in i projektet.
+
+
+
+**Stand-Up **
+
+**21/9 2020 (Eric):**
+
+Gemensamt:
+
+- -
+
+
+
+Andreas:
+
+- Pilla med frontend
+
+
+
+Micael:
+
+- Kika på tester
+
+
+
+Eric: 
+
+- Hugga tag i frontend
+
+
+
+Sebastian:
+
+- Kika på tester
+
+
+
+Hampus: 
+
+- SpaceShip Controller
+
+
 
