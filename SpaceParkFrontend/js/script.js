@@ -29,4 +29,21 @@ function GetPersnFromApi()
       }
 
     });
+
+    function GetShipForPersonFromApi(ships)
+{
+
+    let spaceshipNames= [];
+
+    ships.forEach(element => 
+    fetch(element)
+    .then(res => res.json())
+    .then(data => {
+
+        spaceshipNames.push(data.name);
+       
+    })    
+    );
+                
+}
 }
