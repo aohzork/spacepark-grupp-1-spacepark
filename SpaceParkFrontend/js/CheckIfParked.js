@@ -4,7 +4,7 @@
         return await response.json();
     }
     if (parkedPersons.name)
-};*/
+};
 
 const IsParked = name => 
     new Promise((resolves, rejects) => {
@@ -14,7 +14,8 @@ const IsParked = name =>
         request.onload = () => 
         request.status === 200
             ? resolves(JSON.parse(request.response).results)
-            : reject(Error(request.statusText));
+            : rejects(Error(request.statusText));
         request.onerror = err => rejects(err);
         request.send();
     });
+*/
