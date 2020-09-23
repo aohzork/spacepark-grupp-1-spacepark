@@ -18,16 +18,27 @@
         <h2>Parking for astronauts</h3>
 
             <div class="buttons">
-                <button>Park</button>
-                <button>Unpark</button>
+                <button id="park">Park</button>
+                <button id="unpark">Unpark</button>
             </div>
 
             <form action="" method="GET">
                 <div class="inputElements">
                     <input type="text" placeholder="Name">
-                    <input type="text" placeholder="Ship">
                     <input type="email" placeholder="Luke@example.com">
-                    <button type="submit">Park</button>
+                    <div class="search_categories">
+                        <div class="select">
+                            <select name="search_categories" id="search_categories">
+                                <option value="1" selected="selected">Choose a ship to park</option>
+                                <option value="2">x-wing</option>
+                                <option value="3">Death star</option>
+                                <option value="4">Rostig Amazon</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit">
+                        <img src="img/parking.svg">Park
+                    </button>
                 </div>
             </form>
 
