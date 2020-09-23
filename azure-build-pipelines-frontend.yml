@@ -1,0 +1,28 @@
+# HTML
+
+# Archive your static HTML project and save it with the build record.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+
+steps:
+
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: 'SpaceParkFrontend'
+    Contents: '**'
+    TargetFolder: '$(build.artifactstagingdirectory)'
+    OverWrite: true
+    
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: '$(build.artifactstagingdirectory)'
+    includeRootFolder: false
+- task: PublishBuildArtifacts@1

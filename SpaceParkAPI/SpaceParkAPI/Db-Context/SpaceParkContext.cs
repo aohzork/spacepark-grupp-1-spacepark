@@ -20,12 +20,69 @@ namespace SpaceParkAPI.Db_Context
 
         public virtual DbSet<ParkingLotModel> ParkingLots { get; set; }
         public virtual DbSet<ParkingSpaceModel> ParkingSpaces { get; set; }
-        public virtual DbSet<PersonModel> PersonModels { get; set; }
-        public virtual DbSet<SpaceshipModel> SpaceshipModels { get; set; }
+        public virtual DbSet<PersonModel> Persons { get; set; }
+        public virtual DbSet<SpaceshipModel> Spaceships { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(_configuration.GetConnectionString("DefaultConnection"));
+        }
+
+        
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.Entity<PersonModel>().ToTable("Persons");
+            builder.Entity<PersonModel>().HasKey(p => p.ID);
+            builder.Entity<PersonModel>().HasData(new
+            {
+                ID = (long)1,
+                Name = "sebastian"
+            }, new
+            {
+                ID = (long)2,
+                Name = "Eric"
+            }); ;
+
+            builder.Entity<ParkingLotModel>().ToTable("ParkingLots");
+            builder.Entity<ParkingLotModel>().HasKey(p => p.ID);
+            builder.Entity<ParkingLotModel>().HasData(new
+            {
+                ID = (long)1,
+                TotalAmount = (long)15,
+                
+            }, new
+            {
+                ID = (long)2,
+                TotalAmount = (long)14,
+              
+            }); ;
+
+            builder.Entity<SpaceshipModel>().ToTable("Spaceships");
+            builder.Entity<SpaceshipModel>().HasKey(p => p.ID);
+            builder.Entity<SpaceshipModel>().HasData(new
+            {
+                ID = (long)1,
+                PersonID = (long)2
+            }, new
+            {
+                ID = (long)2,
+                PersonID = (long)2
+
+            }); ;
+
+            builder.Entity<ParkingSpaceModel>().ToTable("ParkingSpaces");
+            builder.Entity<ParkingSpaceModel>().HasKey(p => p.ID);
+            builder.Entity<ParkingSpaceModel>().HasData(new
+            {
+                ID = (long)1,
+                ParkingLotID = (long)1,
+                SpaceShipID=(long)2
+            }, new
+            {
+                ID = (long)2,
+                ParkingLotID = (long)2,
+                SpaceShipID=(long)1
+            }); ;
         }
     }
 }

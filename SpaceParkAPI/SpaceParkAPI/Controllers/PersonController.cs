@@ -27,7 +27,7 @@ namespace SpaceParkAPI.Controllers
             try
             {
                 var personResult = await _personRepo.GetPersonByName(name);
-                if (personResult==null)
+                if (personResult == null)
                 {
                     return NotFound($"Person with Name: {name} could not be found");
                 }
@@ -39,6 +39,49 @@ namespace SpaceParkAPI.Controllers
 
                 return this.StatusCode(StatusCodes.Status500InternalServerError, $"Database Failure: {e.Message}");
             }
+        }
+
+        [HttpPost]
+        public async Task<ActionResult<PersonModel>> PostEvent(PersonModel personModel)
+        {
+            try
+            {
+                _personRepo.Add(personModel);
+                if (await _personRepo.Save())
+                {
+                    return Created($"/api/v1.0/Person/{personModel.ID}", personModel);
+                }
+            }
+            catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Database Failure: {e.Message}");
+            }
+            return BadRequest();
+        }
+
+        [HttpDelete("{name}")]
+        public async Task<ActionResult> DeletePerson(string name)
+        {
+            try
+            {
+                var personToDelete = await _personRepo.GetPersonByName(name);
+                if (personToDelete == null)
+                {
+                    return NotFound($"There is no person with that name in the database");
+                }
+
+                _personRepo.Delete(personToDelete);
+
+                if (await _personRepo.Save())
+                {
+                    return Ok($"You deleted the person: {personToDelete.Name.ToString()} from the database");
+                }
+            }
+            catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Database Failure:{e.Message}");
+            }
+            return BadRequest();
         }
     }
 }
