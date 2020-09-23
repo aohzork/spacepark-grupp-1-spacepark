@@ -8,6 +8,6 @@ namespace SpaceParkAPI.Repos
 {
     public interface ISpaceshipRepo : IRepository
     {
-        Task<SpaceshipModel> GetSpaceshipById(int id);
+        Task<SpaceshipModel> GetSpaceshipById(long id);
     }
 }

@@ -21,7 +21,7 @@ namespace SpaceParkAPI.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<ParkingSpaceModel>> GetParkingSpaceById(int id)
+        public async Task<ActionResult> GetParkingSpaceById(int id)
         {
             try
             {
