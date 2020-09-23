@@ -13,7 +13,7 @@ function GetPersnFromApi()
         if(data.count==1)
         {
             
-          GetShipForPersonFromApi(data.results[0].starships);
+            GetShipForPersonFromApi(data.results[0].starships);
           $("#errormessage").text(`you have successfully parked here ${name}  `)
 
       }
@@ -29,20 +29,4 @@ function GetPersnFromApi()
       }
 
     });
-}
-function GetShipForPersonFromApi(ships)
-{
-
-    let spaceshipNames= [];
-
-    ships.forEach(element => 
-    fetch(element)
-    .then(res => res.json())
-    .then(data => {
-
-        spaceshipNames.push(data.name);
-       
-    })    
-    );
-                
 }
