@@ -43,7 +43,46 @@ namespace SpaceParkAPI.Db_Context
                 Name = "Eric"
             }); ;
 
+            builder.Entity<ParkingLotModel>().ToTable("ParkingLots");
+            builder.Entity<ParkingLotModel>().HasKey(p => p.ID);
+            builder.Entity<ParkingLotModel>().HasData(new
+            {
+                ID = (long)1,
+                TotalAmount = (long)15,
+                
+            }, new
+            {
+                ID = (long)2,
+                TotalAmount = (long)14,
+              
+            }); ;
 
+            builder.Entity<SpaceshipModel>().ToTable("Spaceships");
+            builder.Entity<SpaceshipModel>().HasKey(p => p.ID);
+            builder.Entity<SpaceshipModel>().HasData(new
+            {
+                ID = (long)1,
+                PersonID = (long)2
+            }, new
+            {
+                ID = (long)2,
+                PersonID = (long)2
+
+            }); ;
+
+            builder.Entity<ParkingSpaceModel>().ToTable("ParkingSpaces");
+            builder.Entity<ParkingSpaceModel>().HasKey(p => p.ID);
+            builder.Entity<ParkingSpaceModel>().HasData(new
+            {
+                ID = (long)1,
+                ParkingLotID = (long)1,
+                SpaceShipID=(long)2
+            }, new
+            {
+                ID = (long)2,
+                ParkingLotID = (long)2,
+                SpaceShipID=(long)1
+            }); ;
         }
     }
 }

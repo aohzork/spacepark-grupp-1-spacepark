@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SpaceParkAPI.Db_Context;
 
 namespace SpaceParkAPI.Migrations
 {
     [DbContext(typeof(SpaceParkContext))]
-    partial class SpaceParkContextModelSnapshot : ModelSnapshot
+    [Migration("20200918090755_exempledataforspaceship")]
+    partial class exempledataforspaceship
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -32,18 +34,6 @@ namespace SpaceParkAPI.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("ParkingLots");
-
-                    b.HasData(
-                        new
-                        {
-                            ID = 1L,
-                            TotalAmount = 15L
-                        },
-                        new
-                        {
-                            ID = 2L,
-                            TotalAmount = 14L
-                        });
                 });
 
             modelBuilder.Entity("SpaceParkAPI.Models.ParkingSpaceModel", b =>
@@ -66,20 +56,6 @@ namespace SpaceParkAPI.Migrations
                     b.HasIndex("SpaceShipID");
 
                     b.ToTable("ParkingSpaces");
-
-                    b.HasData(
-                        new
-                        {
-                            ID = 1L,
-                            ParkingLotID = 1L,
-                            SpaceShipID = 2L
-                        },
-                        new
-                        {
-                            ID = 2L,
-                            ParkingLotID = 2L,
-                            SpaceShipID = 1L
-                        });
                 });
 
             modelBuilder.Entity("SpaceParkAPI.Models.PersonModel", b =>

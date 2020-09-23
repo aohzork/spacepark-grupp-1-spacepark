@@ -34,7 +34,55 @@ h1{
 }
 
 h2{
-    font-size: 50px;
+    font-size: 30px;
+}
+
+
+button{
+    -webkit-box-shadow: 0px 5px 5px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow:    0px 5px 5px 0px rgba(50, 50, 50, 0.75);
+    box-shadow:         0px 5px 5px 0px rgba(50, 50, 50, 0.75);
+    background-color: white;
+    border: none;
+    color: black;
+    border-radius: 15px;
+    padding: 7px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    width: 150px;
+    font-size: large;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button img{
+    width: 20px;
+    height: 20px;
+    padding-right: 10px;
+}
+
+
+input{
+    color: white;
+    border: none;
+    border-bottom: 2px solid white;
+    background: transparent;
+    outline: none;
+}
+
+::placeholder{
+    color: white;
+    font-size: large;
+    opacity: 1;
+}
+
+#park{
+    margin-right: 90px;
 }
 
 
@@ -52,13 +100,14 @@ h2{
 }
 
 
-
 /**Park Unpark**/
 .buttons{
     margin-top: 20px;
     display: flex;
     justify-content: center;
 }
+
+
 /**END Park Unpark**/
 
 /**Form**/
@@ -81,7 +130,8 @@ h2{
 }
 
 .inputElements button{
-    margin: 10px 0px 10px 0px;
+    margin: 23px 0px 20px 0px;
+    
 }
 /**END Form**/
 
@@ -90,6 +140,7 @@ h2{
 .logoContainer{
     display: flex;
     justify-content: center;
+    
 }
 
 .logo{
@@ -101,12 +152,45 @@ h2{
     display: flex;
     justify-content: center;
     align-items: center;
+    -webkit-box-shadow: 0px 5px 5px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow:    0px 5px 5px 0px rgba(50, 50, 50, 0.75);
+    box-shadow:         0px 5px 5px 0px rgba(50, 50, 50, 0.75);
 }
 
 .logo img{
     max-width: 75%;
     max-height: 75%;
 }
+
+.search_categories{
+    padding: 10px 8px 30px 14px;
+    margin-top: 10px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+    font-size: 15px;
+    margin-left: -170px;
+  }
+  
+  .search_categories .select{
+    width: 120%;
+    background:url('arrow.png') no-repeat;
+    background-position:80% center;
+  }
+  
+  .search_categories .select select{
+    background: transparent;
+    line-height: 1;
+    border: 0;
+    padding: 0;
+    border-radius: 0;
+    width: 120%;
+    position: relative;
+    z-index: 10;
+    font-size: 1em;
+  }
 
 /***End Logo**/
 
