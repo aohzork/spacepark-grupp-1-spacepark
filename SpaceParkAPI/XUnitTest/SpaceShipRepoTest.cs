@@ -13,7 +13,7 @@ using Xunit;
 
 namespace XUnitTest
 {
-    class SpaceShipRepoTest
+    public class SpaceShipRepoTest
     {
         [Fact]
         public void GetSpaceshipById_Returns_SpaceShip()
@@ -21,14 +21,15 @@ namespace XUnitTest
             //Setup DbContext and DbSet mock  
             var dbContextMock = new Mock<SpaceParkContext>();
             var dbSetMock = new Mock<DbSet<SpaceshipModel>>();
-            dbSetMock.Setup(s => s.FindAsync(It.IsAny<Guid>())).Returns(Task.FromResult(new SpaceshipModel()));
-            dbContextMock.Setup(s => s.Set<SpaceshipModel>()).Returns(dbSetMock.Object);
+            //dbSetMock.Setup(s => s.FindAsync(1)).Returns(Task.FromResult(new SpaceshipModel()));
+            var spaceshipMock = new SpaceshipModel() { ID = 1, Person=new PersonModel() { ID=1, Name="Kalle" } };
+            dbContextMock.Setup(s => s.Spaceships).Returns(dbSetMock.Object);
 
             //Setup logger mock
             var logger = Mock.Of<ILogger<SpaceshipRepo>>();
             //Execute method of SUT (ProductsRepository)  
             var spaceShipRepository = new SpaceshipRepo(dbContextMock.Object, logger);
-            var spaceShip = spaceShipRepository.GetSpaceshipById(Guid.NewGuid()).Result;
+            var spaceShip = spaceShipRepository.GetSpaceshipById(1).Result;
 
             //Assert  
             Assert.NotNull(spaceShip);
