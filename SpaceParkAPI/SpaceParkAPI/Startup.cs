@@ -12,7 +12,6 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using SpaceParkAPI.Repos;
 using SpaceParkAPI.Db_Context;
-using SpaceParkAPI.Repos;
 
 namespace SpaceParkAPI
 {
@@ -28,6 +27,17 @@ namespace SpaceParkAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddPolicy(
+                    "AllowFrontEnd",
+                    builder =>
+                    {
+                        builder.WithOrigins("http://127.0.0.1:5500")
+                        .WithMethods("GET");
+                    });
+            });
+
             services.AddControllers();
             services.AddScoped<IPersonRepo,PersonRepo>();
             services.AddScoped<ISpaceshipRepo, SpaceshipRepo>();
@@ -46,6 +56,8 @@ namespace SpaceParkAPI
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors();
 
             app.UseAuthorization();
 

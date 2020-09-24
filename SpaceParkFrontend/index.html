@@ -4,33 +4,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SPACEPARK GRUPP1</title>
+    <title>Welcome to SpacePark</title>
     <script src="js/jquery-3.5.1.min.js"></script>
     <link rel="stylesheet" href="css/style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&family=Orbitron&family=Rajdhani:wght@600&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
     <div class="mainContent">
         <h1>Space Park</h1>
-        <h3>Parking for astronauts</h3>
+        <h2>Parking for astronauts</h2>
 
         <div class="buttons">
-            <button>Park</button>
-            <button>Unpark</button>
+            <button id="park">Park</button>
+            <button id="unpark">Unpark</button>
         </div>
 
-        <div class="inputElements">
-            <input id="namebox" type="text" placeholder="Name">
-            <input type="text" placeholder="Ship">
-            <input type="email" placeholder="Luke@example.com">
-            <p id="errormessage"></p>
-            <button id="submit">Park</button>
-        </div>
+        <form action="" method="GET">
+            <div class="inputElements">
+                <input type="text" placeholder="Name">
+                <input type="email" placeholder="Luke@example.com">
+                <div class="search_categories">
+                    <div class="select">
+                        <select name="search_categories" id="search_categories">
+                            <option value="1" selected="selected">Choose a ship to park</option>
+                            <option value="2">x-wing</option>
+                            <option value="3">Death star</option>
+                            <option value="4">Rostig Amazon</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit">
+                    <img src="img/parking.svg">Park
+                </button>
+            </div>
+        </form>
 
+        <div class="logoContainer">
+            <div class="logo">
+                <img src="img/space-shuttle.png">
+            </div>
+        </div>
     </div>
 
-
+    <script src="js/BackendApiCalls.js"></script>
     <script src="js/script.js"></script>
+    
 </body>
 
 </html>
