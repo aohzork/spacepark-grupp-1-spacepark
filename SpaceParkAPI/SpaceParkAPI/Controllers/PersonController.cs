@@ -22,6 +22,7 @@ namespace SpaceParkAPI.Controllers
             _personRepo = personRepo;
         }
 
+        //api/v1.0/Person/[name]
         [EnableCors("AllowFrontEnd")]
         [HttpGet("{name}")]
         public async Task<ActionResult<PersonModel>> GetPersonByName(string name)
@@ -43,6 +44,7 @@ namespace SpaceParkAPI.Controllers
             }
         }
 
+        //api/v1.0/Person/
         [HttpPost]
         public async Task<ActionResult<PersonModel>> PostEvent(PersonModel personModel)
         {
@@ -61,6 +63,7 @@ namespace SpaceParkAPI.Controllers
             return BadRequest();
         }
 
+        //api/v1.0/Person/[name]
         [HttpDelete("{name}")]
         public async Task<ActionResult> DeletePerson(string name)
         {
