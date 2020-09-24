@@ -1,5 +1,8 @@
-$("#submit").click(GetPersnFromApi)
 
+
+document.getElementById('submit').onclick=function(){GetPersonfromSwapi()}
+
+/*
 function GetPersnFromApi()
 {
     let name=$("#namebox").val();
@@ -29,4 +32,16 @@ function GetPersnFromApi()
       }
 
     });
+    
+    
+}
+*/
+
+function GetPersonfromSwapi()
+{
+    let name = document.getElementById('namebox').value;
+   alert(name)
+    fetch(`https://swapi.dev/api/people/?search=${name}`).then(res=>res.json()).then(data=> console.log(data));
+
+   
 }
