@@ -45,7 +45,9 @@ namespace SpaceParkAPI.Controllers
         }
 
         //api/v1.0/Person/
+        
         [HttpPost]
+        [EnableCors("AllowFrontEnd")]
         public async Task<ActionResult<PersonModel>> PostEvent(PersonModel personModel)
         {
             try
