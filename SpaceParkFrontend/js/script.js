@@ -5,7 +5,7 @@ function GetPersnFromApi()
     let name=$("#namebox").val();
 
     let conectionString = `https://swapi.dev/api/people/?search=${name}`;
-    console.log(conectionString)
+    console.log(conectionString);
     fetch(conectionString)
     .then(res => res.json())
     .then(data => {
