@@ -47,19 +47,5 @@ namespace XUnitTest
 
             return session;
         }
-
-        [Fact]
-        public async Task GetPersonByName_GetReturnsNotFound()
-        {
-            // Arrange
-            var mockRepository = new Mock<IPersonRepo>();
-            var controller = new PersonController(mockRepository.Object);
-
-            // Act
-            ActionResult actionResult = await controller.GetPersonByName("johannes");
-
-            // Assert
-            Assert.IsAssignableFrom<NotFoundObjectResult>(actionResult);
-        }
     }
 }
