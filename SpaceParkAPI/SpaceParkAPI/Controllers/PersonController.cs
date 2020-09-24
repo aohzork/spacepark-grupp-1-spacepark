@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -21,6 +22,7 @@ namespace SpaceParkAPI.Controllers
             _personRepo = personRepo;
         }
 
+        [EnableCors("AllowFrontEnd")]
         [HttpGet("{name}")]
         public async Task<ActionResult<PersonModel>> GetPersonByName(string name)
         {
