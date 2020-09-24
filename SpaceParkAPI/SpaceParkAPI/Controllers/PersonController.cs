@@ -64,6 +64,7 @@ namespace SpaceParkAPI.Controllers
         }
 
         //api/v1.0/Person/[name]
+        [EnableCors("AllowFrontEnd")]
         [HttpDelete("{name}")]
         public async Task<ActionResult> DeletePerson(string name)
         {
