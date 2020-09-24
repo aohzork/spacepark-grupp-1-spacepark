@@ -9,7 +9,7 @@ using SpaceParkAPI.Repos;
 
 namespace SpaceParkAPI.Controllers
 {
-    [Route("spapi/v1.0/[controller]")]
+    [Route("api/v1.0/[controller]")]
     [ApiController]
     public class ParkingSpaceController : ControllerBase
     {
