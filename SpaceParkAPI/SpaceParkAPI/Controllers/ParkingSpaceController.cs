@@ -20,6 +20,7 @@ namespace SpaceParkAPI.Controllers
             _parkingSpaceRepo = parkingSpaceRepo;
         }
 
+        //api/v1.0/ParkingSpace/##
         [HttpGet("{id}")]
         public async Task<ActionResult> GetParkingSpaceById(int id)
         {
@@ -40,6 +41,7 @@ namespace SpaceParkAPI.Controllers
             
         }
 
+        //api/v1.0/ParkingSpace/##
         [HttpDelete("{id}")]
         public async Task<ActionResult> DeleteParkingSpace(int id)
         {

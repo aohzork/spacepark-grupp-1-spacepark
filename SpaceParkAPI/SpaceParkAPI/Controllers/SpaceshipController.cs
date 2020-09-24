@@ -18,7 +18,7 @@ namespace SpaceParkAPI.Controllers
             _spaceshipRepo = spaceshipRepo;
         }
 
-        //spapi/v1.0/Spaceship/##
+        //api/v1.0/Spaceship/##
         [HttpGet("{id}")]
         public async Task<ActionResult<SpaceshipModel>> GetSpaceshipById(long id)
         {
@@ -38,7 +38,7 @@ namespace SpaceParkAPI.Controllers
             }
         }
 
-        //spapi/v1.0/Spaceship
+        //api/v1.0/Spaceship
         [HttpPost]
         public async Task<ActionResult<PersonModel>> PostEvent(SpaceshipModel spaceshipModel)
         {
@@ -57,7 +57,7 @@ namespace SpaceParkAPI.Controllers
             return BadRequest();
         }
 
-        //spapi/v1.0/Spaceship/##
+        //api/v1.0/Spaceship/##
         [HttpDelete("{id}")]
         public async Task<ActionResult<SpaceshipModel>> DeleteSpaceship(long id)
         {            
