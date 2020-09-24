@@ -26,6 +26,7 @@ namespace XUnitTest
 
             //Setup logger mock
             var logger = Mock.Of<ILogger<SpaceshipRepo>>();
+
             //Execute method of SUT (ProductsRepository)  
             var spaceShipRepository = new SpaceshipRepo(dbContextMock.Object, logger);
             var spaceShip = spaceShipRepository.GetSpaceshipById(1).Result;
