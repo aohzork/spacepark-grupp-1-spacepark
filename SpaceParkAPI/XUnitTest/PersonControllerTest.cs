@@ -1,13 +1,18 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Moq;
-using SpaceParkAPI.Controllers;
-using SpaceParkAPI.Models;
-using SpaceParkAPI.Repos;
+﻿using Moq;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Threading.Tasks;
 using Xunit;
+using SpaceParkAPI.Db_Context;
+using SpaceParkAPI;
+using SpaceParkAPI.Models;
+using Moq.EntityFrameworkCore;
+using SpaceParkAPI.Repos;
+using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
+using SpaceParkAPI.Controllers;
+using Microsoft.AspNetCore.Mvc;
 
 namespace XUnitTest
 {
@@ -15,13 +20,10 @@ namespace XUnitTest
     {
         [Theory]
         [InlineData("Erik", "Erik")]
-        [InlineData("Sofia", "Sofia")]
-        [InlineData("Janne", "Janne")]
         public async Task GetPersonByName_Status200OKIsType_ReturnedNameContains(string input, string expectedName)
         {
             {
                 // Arrange
-                //int testParkingSpaceId = 1;
                 var mockRepo = new Mock<IPersonRepo>();
                 mockRepo.Setup(repo => repo.GetPersonByName(input)).Returns(Task.FromResult(GetTestSession()));
                 var controller = new PersonController(mockRepo.Object);
@@ -38,12 +40,9 @@ namespace XUnitTest
             }           
         }
 
-        private List<PersonModel> GetTestSession()
+        private PersonModel GetTestSession()
         {
-            List<PersonModel> session = new List<PersonModel>();
-            session.Add(new PersonModel { ID = 1, Name = "Erik" });
-            session.Add(new PersonModel { ID = 2, Name = "Janne" });
-            session.Add(new PersonModel { ID = 3, Name = "Sofia" });
+            var session = new PersonModel { ID = 1, Name = "Erik" };
 
             return session;
         }
