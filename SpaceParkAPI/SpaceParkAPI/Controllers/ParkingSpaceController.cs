@@ -40,8 +40,23 @@ namespace SpaceParkAPI.Controllers
             }
             
         }
-
-        //api/v1.0/ParkingSpace/##
+        [HttpPost]
+        public async Task<ActionResult<ParkingSpaceModel>> PostParkingSpace(ParkingSpaceModel parkingSpaceModel)
+        {
+            try
+            {
+                _parkingSpaceRepo.Add(parkingSpaceModel);
+                if (await _parkingSpaceRepo.Save())
+                {
+                    return Created($"/api/v1.0/Spaceship/{parkingSpaceModel.ID}", parkingSpaceModel);
+                }
+            }
+            catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Database Failure: {e.Message}");
+            }
+            return BadRequest();
+        }
         [HttpDelete("{id}")]
         public async Task<ActionResult> DeleteParkingSpace(int id)
         {
