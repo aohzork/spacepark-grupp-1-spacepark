@@ -34,7 +34,8 @@ namespace SpaceParkAPI
                     builder =>
                     {
                         builder.WithOrigins("http://127.0.0.1:5500")
-                        .WithMethods("GET", "DELETE");
+                        .AllowAnyMethod()
+                        .AllowAnyHeader();
                     });
             });
 
@@ -51,7 +52,7 @@ namespace SpaceParkAPI
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-            }
+            }          
 
             app.UseHttpsRedirection();
 
