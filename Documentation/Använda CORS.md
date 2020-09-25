@@ -44,5 +44,37 @@ Och för att applicera policyn på en metod i en kontroller gör man så här:
 
 ##### Frontend.
 
-För att sedan göra anropen med vanlig JavaScript-syntax så ser det ut som följande:
+Ett första tips! Denna artikel går grundligt igenom vad CORS är och hur det fungerar på klient-sidan:
+
+https://javascript.info/fetch-crossorigin.
+
+Även Mozillas MDN web docs är en bra källa: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch.
+
+Jag kan också rekommendera boken "CORS in action" av Monsur Hossain för en djupare förståelse och genomgång.
+
+
+
+För att göra anropen med vanlig JavaScript-syntax så ser det ut som följande:
+
+![CORS_Post_Frontend](CORS_Post_Frontend.PNG)
+
+Först och främst är denna metod asynchron. Detta gör att programmet i övrigt inte stannar upp och väntar på ett anrop. 
+
+Inuti Try-blocket görs en "fetch" som tar URL till den metod i API:t vi vill anropa samt några inställningar: 
+
+- method: 
+  - Specificerar för servern vilken typ av request som vill genomnföras.
+- headers:
+  - Här finns en dröser med inställningar men för vårt syfte är det "Content-Type" som är viktig. Den specificerar av vilken typ den medsända data är så att API:t kan tolka det på sin sida.
+  - Just "application/json" räknas inte in i det som betecknas "simple-cors-requests" och därför får man ett CORS-error om man försöker göra detta utan att ha tillåtit alla headers på backend/server/api sidan. 
+  - De tre typer som är tillåtna inom ramarna för simple request är:
+    - application/x-www-form-urlencoded
+    - multipart/form-data
+    - text/plain
+- body: 
+  - Här lagrar vi själva datan vi vill skicka med i requestet. Det är viktigt att datan är av samma typ som angivits i "Content-Type".
+
+Till sist, om fetchen går felfritt, så loggas responsmeddelandet och responsens data hämtas ut i json-format och returneras.
+
+Sist finns även en Catch som hanterar eventuella fel som kan uppstå utan att applicationen krashar.
 
