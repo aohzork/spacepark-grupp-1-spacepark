@@ -1,7 +1,20 @@
-//Method making a call to our api to fetch a person by name.
-const getParkedPerson = async(name) => 
-    fetch(`https://localhost:44350/api/v1.0/person/${name}`)
-    .then( response => {
-        return response.json();
-    })
-    .catch(console.error);
+/****************************************************
+------------------ SPACESHIP CALLS ------------------
+****************************************************/
+
+//Method making a call to our api to delete a spaceship by id.
+const deleteSpaceship = async(id) => {    
+    try 
+    {
+        let response = await fetch(`https://localhost:44350/api/v1.0/spaceship/${id}`,
+            {method: "DELETE"}
+        );
+
+        console.log(response);
+        return response;
+    }
+    catch(error)        
+    {
+        console.error(error);
+    }
+}
