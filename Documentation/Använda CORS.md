@@ -1,4 +1,4 @@
-### Hur CORS är implementerat och hur du som utvecklare kan bygga på vår lösning.
+### Hur CORS är implementerat i och hur du som utvecklare kan bygga på vår lösning.
 
 ##### Översikt.
 
@@ -14,7 +14,7 @@ https://en.wikipedia.org/wiki/Cross-origin_resource_sharing
 
 
 
-##### Vår implementation.
+##### Backend.
 
 Vi har valt att använda oss av lösningen att skapa en policy som vi, via attribut i kontrollerna, kan applicera på de requests som vi vill ska vara nåbara för vår frontend.
 
@@ -22,12 +22,27 @@ För att åstadkomma detta har vi skrivit in följande i vår startup:
 
 ![CORS_startup_code](CORS_startup_code.PNG)
 
-Det är här viktigt att tänka på den metod som kedjas på som heter "WithMethods()". Här specificeras vilken typ av requests som tillåts i policyn.
-
 ![CORS_startup_code2](CORS_startup_code2.PNG)
+
+- WithOrigins()
+  - Här kan du bestämma vilka origins som kommer att få tillgång till API:t genom CORS.
+- AllowAllMethods()
+  - Metoden gör att alla CRUD-operationer får göras från den tillåtna origin:en.
+  - Man kan även specificera CRUD metoder genom att istället använda WithMethods().
+- AllowAllHeaders()
+  - Nödvändiga för att få göra mer komplexa requests mot API:t. Som t.ex. post med json.
+- I Configure: app.UseCors()
+  - Det är viktigt att denna middleware laddas i rätt ordning och den måste ligga mellan "UseRouting" och "UseEndpoints".
 
 
 
 Och för att applicera policyn på en metod i en kontroller gör man så här:
 
 ![CORS_Attribute](CORS_Attribute.PNG)
+
+
+
+##### Frontend.
+
+För att sedan göra anropen med vanlig JavaScript-syntax så ser det ut som följande:
+
