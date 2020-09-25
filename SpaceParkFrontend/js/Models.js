@@ -1,6 +1,4 @@
 class Spaceship {
-    constructor() 
-    {}
 
     constructor(person){
         this.ID;
