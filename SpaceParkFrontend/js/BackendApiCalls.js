@@ -1,9 +1,6 @@
-class Person {
-    constructor(name){
-        this.ID;
-        this.Name = name;
-    }
-}
+/****************************************************
+------------------- PERSON CALLS --------------------
+****************************************************/
 
 //Method making a call to our api to fetch a person by name.
 const getPerson = async(name) => {
@@ -23,7 +20,7 @@ const postPerson = async(personObject) => {
         //Turn object into Json-string
         let asJson = JSON.stringify(personObject);
 
-        //Do actual request
+        //Do request
         let response = await fetch(`https://localhost:44350/api/v1.0/person`, 
             {
                 method: 'POST',
@@ -41,14 +38,3 @@ const postPerson = async(personObject) => {
         console.error(error);
     }
 };
-
-/* const postPersonTwo = async(personObject) => {
-    $.ajax({
-        type: "POST",
-        crossDomain: true,
-        contentType: "application/json",
-        dataType: "json",
-        data: JSON.stringify(personObject),
-        url: "https://localhost:44350/api/v1.0/person"        
-    });    
-} */
