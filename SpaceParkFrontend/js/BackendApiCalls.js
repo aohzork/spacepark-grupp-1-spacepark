@@ -17,15 +17,13 @@ const getPerson = async(name) => {
 //Method making a call to our api to post a person by name.
 const postPerson = async(personObject) => {
     try {
-        //Turn object into Json-string
-        let asJson = JSON.stringify(personObject);
 
         //Do request
         let response = await fetch(`https://localhost:44350/api/v1.0/person`, 
             {
                 method: 'POST',
                 headers: {'Content-Type': `application/json`},
-                body: asJson
+                body: personObject.ToJsonString()
             });
 
         //Log the response to console

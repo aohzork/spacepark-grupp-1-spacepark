@@ -3,4 +3,8 @@ class Person {
         this.ID;
         this.Name = name;
     }
+
+    ToJsonString() {
+        return JSON.stringify(this);
+    }
 }
