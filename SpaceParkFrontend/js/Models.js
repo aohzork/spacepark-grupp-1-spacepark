@@ -20,3 +20,4 @@ class Person {
         return JSON.stringify(this);
     }
 }
+
