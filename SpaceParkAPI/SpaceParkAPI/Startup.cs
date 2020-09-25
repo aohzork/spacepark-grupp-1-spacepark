@@ -34,9 +34,12 @@ namespace SpaceParkAPI
                     builder =>
                     {
                         builder.WithOrigins("http://127.0.0.1:5500")
-                        .WithMethods("GET", "POST", "PUT", "DELETE");
+                        .AllowAnyMethod();
                     });
             });
+
+            //services.AddCors();
+            //services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Latest);
 
             services.AddControllers();
             services.AddScoped<IPersonRepo,PersonRepo>();
@@ -52,6 +55,13 @@ namespace SpaceParkAPI
             {
                 app.UseDeveloperExceptionPage();
             }
+            
+            //app.UseCors(
+            //    options => options.WithOrigins("http://127.0.0.1:5500")
+            //    .AllowAnyMethod()
+            //    );
+
+            //app.UseMvc();
 
             app.UseHttpsRedirection();
 
