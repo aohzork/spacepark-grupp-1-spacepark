@@ -1,5 +1,5 @@
-class Spaceship {
 
+class Spaceship {
     constructor(person){
         this.ID;
         this.Person = person;
@@ -8,4 +8,16 @@ class Spaceship {
     ToJsonString() {
         return JSON.stringify(this);
     }
-} 
+}
+
+class Person {
+    constructor(name){
+        this.ID;
+        this.Name = name;
+    }
+
+    ToJsonString() {
+        return JSON.stringify(this);
+    }
+}
+
