@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SpaceParkAPI.Models;
 using SpaceParkAPI.Repos;
@@ -39,6 +40,7 @@ namespace SpaceParkAPI.Controllers
         }
 
         //api/v1.0/Spaceship
+        [EnableCors("AllowFrontEnd")]
         [HttpPost]
         public async Task<ActionResult<PersonModel>> PostEvent(SpaceshipModel spaceshipModel)
         {
