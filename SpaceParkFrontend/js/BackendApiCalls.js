@@ -8,8 +8,7 @@ const getSpaceship = async(id) => {
     {
         let response = await fetch
         (
-            `https://localhost:44350/api/v1.0/person/${id}`, 
-            {method: 'GET'}
+            `https://localhost:44350/api/v1.0/spaceship/${id}`
         );
 
         console.log(response);
