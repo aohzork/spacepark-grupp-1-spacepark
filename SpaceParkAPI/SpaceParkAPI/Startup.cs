@@ -39,9 +39,6 @@ namespace SpaceParkAPI
                     });
             });
 
-            //services.AddCors();
-            //services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Latest);
-
             services.AddControllers();
             services.AddScoped<IPersonRepo,PersonRepo>();
             services.AddScoped<ISpaceshipRepo, SpaceshipRepo>();
@@ -55,14 +52,7 @@ namespace SpaceParkAPI
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-            }
-            
-            //app.UseCors(
-            //    options => options.WithOrigins("http://127.0.0.1:5500")
-            //    .AllowAnyMethod()
-            //    );
-
-            //app.UseMvc();
+            }          
 
             app.UseHttpsRedirection();
 
