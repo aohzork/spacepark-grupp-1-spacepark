@@ -1,3 +1,3 @@
-console.log(postPerson(new Person("Lando")));
-
+let pers = postPerson(new Person("Lando"));
+console.log(pers);
 //console.log(getPerson("Umberto"));
