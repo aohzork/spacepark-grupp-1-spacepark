@@ -5,3 +5,12 @@ const getParkedPerson = async(name) =>
         return response.json();
     })
     .catch(console.error);
+
+
+    const GetParkingspaceByID = async(id) => 
+    fetch(`https://localhost:44350/api/v1.0/ParkingSpace/${id}`)
+    .then( response => {
+        console.log(response)
+        return response.json();
+    })
+    .catch(console.error);
