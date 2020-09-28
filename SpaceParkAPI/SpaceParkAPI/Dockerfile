@@ -7,7 +7,7 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
-COPY ["SpaceParkAPI/SpaceParkAPI.csproj", "SpaceParkAPI/"]
+COPY ["SpaceParkAPI.csproj", "SpaceParkAPI/"]
 RUN dotnet restore "SpaceParkAPI/SpaceParkAPI.csproj"
 COPY . .
 WORKDIR "/src/SpaceParkAPI"
