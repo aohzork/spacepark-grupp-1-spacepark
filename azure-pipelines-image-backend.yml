@@ -7,7 +7,7 @@ trigger: none
 resources:
   pipelines:
   - pipeline: pipelineAPIBuild # Name of the pipeline resource
-    source: Build Pipeline Backend API + Tests # Name of the pipeline referenced by the pipeline resource
+    source: Pipeline Backend API Build + Tests # Name of the pipeline referenced by the pipeline resource
     trigger: 
       branches:
       - master
