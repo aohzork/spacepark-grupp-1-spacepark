@@ -14,6 +14,16 @@ Vi modellerade upp vår databas utefter vår databasdesign vi tog fram i samband
 
 Vår connectionstring hämtade vi i Azure efter vi skapat vår databas. Eftersom vi lade den i vår appsettings.json fick vi även sedan i Azure Portal skapa en keyvault som höll vår connectionstring som kopplade ihop våra andra resurser som också låg i Azure Portal (Frontend, API, SQL).
 
+### KeyVault
+
+Keyvault var lite lurigt att få till då det inte finns så mycket lättförståelig dokumentation på det. Men som tur var lyckades vi hitta ett youtubeklipp med en enkel lösning som var lätt att modifiera och implementera.
+
+Följande länk hittas youtubeklippet: [[.Net Core] With Azure: Using Azure Key Vault to store Secrets](https://www.youtube.com/watch?v=yRf-doZMIBw)
+
+Istället som för klippet, där implementationen av klassen han skapade låg i program.cs, använde vi den istället i vår SpaceParkContext där vår connectionstring till vår databas finns:
+
+
+
 ## Tester
 
 Eftersom vi visste att tiden kunde bli knapp och vi samtidigt ville ha så mycket tid som möjligt för Azure Devops och  Azure Portal gjorde vi endast ett fåtal tester för att få med dem i vår pipeline. Vi använde oss av Xunit samt Mock(Moq nuget). Testerna skedde främst för våra Controllers där vi bland annat testade att vi fick tillbaka svarskod *Status200OK*, och objektet vi eftersökte.
