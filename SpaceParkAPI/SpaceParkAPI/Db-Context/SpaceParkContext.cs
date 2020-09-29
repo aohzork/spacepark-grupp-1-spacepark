@@ -57,8 +57,8 @@ namespace SpaceParkAPI.Db_Context
               
             }); ;
 
+            builder.Entity<SpaceshipModel>().HasOne(s => s.Person);
             builder.Entity<SpaceshipModel>().ToTable("Spaceships");
-            builder.Entity<SpaceshipModel>().HasKey(p => p.ID);
             builder.Entity<SpaceshipModel>().HasData(new
             {
                 ID = (long)1,
