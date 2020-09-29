@@ -22,7 +22,7 @@ namespace SpaceParkAPI.Controllers
         //api/v1.0/Spaceship/##
         [EnableCors("AllowFrontEnd")]
         [HttpGet("{id}")]
-        public async Task<ActionResult<SpaceshipModel>> GetSpaceshipById(long id)
+        public async Task<ActionResult> GetSpaceshipById(long id)
         {
             try
             {
@@ -41,6 +41,7 @@ namespace SpaceParkAPI.Controllers
         }
 
         //api/v1.0/Spaceship
+        [EnableCors("AllowFrontEnd")]
         [HttpPost]
         public async Task<ActionResult<PersonModel>> PostEvent(SpaceshipModel spaceshipModel)
         {
