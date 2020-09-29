@@ -33,18 +33,48 @@ namespace SpaceParkAPI.Db_Context
         {
             builder.Entity<PersonModel>().ToTable("Persons");
             builder.Entity<PersonModel>().HasKey(p => p.ID);
+            builder.Entity<PersonModel>().HasOne(p => p.Spaceship).WithOne(s => s.Person);
             builder.Entity<PersonModel>().HasData(new
             {
                 ID = (long)1,
-                Name = "sebastian"
+                Name = "sebastian",
+                SpaceshipID = (long)1
             }, new
             {
                 ID = (long)2,
-                Name = "Eric"
+                Name = "Eric",
+                SpaceshipID = (long)2
+            }); ;
+
+            builder.Entity<SpaceshipModel>().HasKey(s => s.ID);
+            builder.Entity<SpaceshipModel>().HasOne(s => s.ParkingSpace).WithOne(p => p.Spaceship);
+            builder.Entity<SpaceshipModel>().ToTable("Spaceships");
+            builder.Entity<SpaceshipModel>().HasData(new
+            {
+                ID = (long)1,
+                ParkingSpaceID = (long)1
+            }, new
+            {
+                ID = (long)2,
+                ParkingSpaceID = (long)2
+            }); ;
+
+            builder.Entity<ParkingSpaceModel>().ToTable("ParkingSpaces");
+            builder.Entity<ParkingSpaceModel>().HasKey(p => p.ID);
+            builder.Entity<ParkingSpaceModel>().HasOne(ps => ps.Spaceship).WithOne(s => s.ParkingSpace);
+            builder.Entity<ParkingSpaceModel>().HasData(new
+            {
+                ID = (long)1,
+                ParkingLotID = (long)1
+            }, new
+            {
+                ID = (long)2,
+                ParkingLotID = (long)1
             }); ;
 
             builder.Entity<ParkingLotModel>().ToTable("ParkingLots");
             builder.Entity<ParkingLotModel>().HasKey(p => p.ID);
+            builder.Entity<ParkingLotModel>().HasMany(pl => pl.ParkingSpaces).WithOne(ps => ps.ParkingLot);
             builder.Entity<ParkingLotModel>().HasData(new
             {
                 ID = (long)1,
@@ -55,34 +85,9 @@ namespace SpaceParkAPI.Db_Context
                 ID = (long)2,
                 TotalAmount = (long)14,
               
-            }); ;
+            }); ;            
 
-            builder.Entity<SpaceshipModel>().HasOne(s => s.Person);
-            builder.Entity<SpaceshipModel>().ToTable("Spaceships");
-            builder.Entity<SpaceshipModel>().HasData(new
-            {
-                ID = (long)1,
-                PersonID = (long)2
-            }, new
-            {
-                ID = (long)2,
-                PersonID = (long)2
-
-            }); ;
-
-            builder.Entity<ParkingSpaceModel>().ToTable("ParkingSpaces");
-            builder.Entity<ParkingSpaceModel>().HasKey(p => p.ID);
-            builder.Entity<ParkingSpaceModel>().HasData(new
-            {
-                ID = (long)1,
-                ParkingLotID = (long)1,
-                SpaceShipID=(long)2
-            }, new
-            {
-                ID = (long)2,
-                ParkingLotID = (long)2,
-                SpaceShipID=(long)1
-            }); ;
+            
         }
     }
 }

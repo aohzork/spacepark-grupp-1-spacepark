@@ -2,7 +2,7 @@
 
 namespace SpaceParkAPI.Migrations
 {
-    public partial class tyNewNugeJson : Migration
+    public partial class RelationshipShipPersonUpdate4 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

@@ -11,6 +11,12 @@ namespace SpaceParkAPI.Models
     {
         [Key]
         public long ID { get; set; }
+
         public PersonModel Person { get; set; }
+
+        [ForeignKey("ParkingSpaceID")]
+        public long ParkingSpaceID { get; set; }
+        public ParkingSpaceModel ParkingSpace { get; set; }
+        
     }
 }
