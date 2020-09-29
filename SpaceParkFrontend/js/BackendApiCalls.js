@@ -96,3 +96,13 @@ const deletePerson = async(name) => {
         console.error(error);
     }
 };
+
+const deletePersonById = async(id) => {
+    try {
+        let response = await fetch(`https://localhost:44350/api/v1.0/person/${id}`, 
+            {method: 'DELETE'});
+        return response.json;
+    } catch (error) {
+        console.error(error);
+    }
+};
