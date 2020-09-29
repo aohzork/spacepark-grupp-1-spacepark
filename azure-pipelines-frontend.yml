@@ -15,7 +15,6 @@ variables:
   containerRegistry: 'swapicontainerregistry.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/SpaceParkFrontend/Dockerfile'
   tag: '$(Build.BuildId)'
-  includeLatestTag: latest
 
   
   # Agent VM image name
