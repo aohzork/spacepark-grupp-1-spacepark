@@ -2,24 +2,27 @@
 ------------------ SPACESHIP CALLS ------------------
 ****************************************************/
 
-<<<<<<< HEAD
-//Method making a call to our api to delete a spaceship by id.
-const deleteSpaceship = async(id) => {    
+//Method making a call to our api to fetch a spaceship by ID.
+const getSpaceship = async(id) => {
     try 
     {
-        let response = await fetch(`https://localhost:44350/api/v1.0/spaceship/${id}`,
-            {method: "DELETE"}
+        let response = await fetch
+        (
+            `https://localhost:44350/api/v1.0/spaceship/${id}`,
+            { method: "GET" }
         );
 
         console.log(response);
-        return response;
-    }
-    catch(error)        
+
+        let json = response.json();
+        return json;
+    } 
+    catch (error) 
     {
         console.error(error);
     }
-}
-=======
+};
+
 //Method making a call to our api to post a spaceship.
 const postSpaceship = async(spaceshipObject) => {
     try {
@@ -43,26 +46,26 @@ const postSpaceship = async(spaceshipObject) => {
     }
 };
 
-//Method making a call to our api to fetch a spaceship by ID.
-const getSpaceship = async(id) => {
+//Method making a call to our api to delete a spaceship by id.
+const deleteSpaceship = async(id) => {    
     try 
     {
-        let response = await fetch
-        (
-            `https://localhost:44350/api/v1.0/spaceship/${id}`,
-            { method: "GET" }
+        //Save the person that belongs to the ship to delete it after the ship has been deleted
+        let person = getSpaceship(id).then(result => JSON.parse(result));
+        person =
+
+        let response = await fetch(`https://localhost:44350/api/v1.0/spaceship/${id}`,
+            {method: "DELETE"}
         );
 
         console.log(response);
-
-        let json = response.json();
-        return json;
-    } 
-    catch (error) 
+        return response;
+    }
+    catch(error)        
     {
         console.error(error);
     }
-};
+}
 
 
 /****************************************************
@@ -114,4 +117,3 @@ const deletePerson = async(name) => {
         console.error(error);
     }
 };
->>>>>>> master
