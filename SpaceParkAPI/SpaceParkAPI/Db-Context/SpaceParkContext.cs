@@ -28,7 +28,7 @@ namespace SpaceParkAPI.Db_Context
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             var azureDbCon = _aKVService.GetKeyVaultSecret("https://spaceparkkv.vault.azure.net/secrets/dbcon/177aa99fc9a64986b14bb47e92d82012");
-            if(azureDbCon == null || azureDbCon == string.Empty)
+            if(string.IsNullOrEmpty(azureDbCon))
             {
                 optionsBuilder.UseSqlServer(_configuration.GetConnectionString("DefaultConnection"));               
             }
