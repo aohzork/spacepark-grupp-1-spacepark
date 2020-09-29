@@ -15,6 +15,7 @@ variables:
   containerRegistry: 'swapicontainerregistry.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/SpaceParkFrontend/Dockerfile'
   tag: '$(Build.BuildId)'
+
   
   # Agent VM image name
   vmImageName: 'ubuntu-latest'

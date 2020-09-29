@@ -13,10 +13,10 @@ För varje Task genereras ett litet kodstycke med olika parametrar och variabler
 För vårt projekt har vi skapat 3 pipelines:
 
 1. En Build & Test-pipeline för vårt API
-   2. Sammanlänkad pipeline som triggas efter Build & Test API har lyckats. Den sammanlänkade pipelinen skapar en Docker image som ladda upp  på  Azure Portal i en ACR (Azure Container Instance).
+   2. Sammanlänkad pipeline som triggas efter Build & Test API har lyckats. Den sammanlänkade pipelinen skapar en Docker image som ladda upp  på  Azure Portal i en ACR (Azure Container Registy).
 
 
-3. En pipeline som bygger vårt Frontend som består av statisk html med js. I frontenden finns endast html- , css- samt js-filer.
+3. En pipeline som gör om vår Frontend (som består av statisk html med js) till en docker-image och pushar upp den till en ACR. I frontenden finns endast html- , css- samt js-filer.
 
 
 
@@ -43,7 +43,7 @@ Väljer man å andra sidan knappen Variables anger man istället ett namn och et
 
 ## Trigga pipelines efter varandra
 
-Det är fördelaktigt att ha flera pipelines mot samma repository, men som gör olika saker. Om inget annat anges, körs alla pipelines parallellt varje gång någon kod  commitas mot master-repot (i vårt fall vårt Github-repo). Detta eftersom defaultvärde på samtliga pipelines **Trigger** är master:
+Det är fördelaktigt att ha flera pipelines mot samma repository, men som gör olika saker. Om inget annat anges, körs alla pipelines parallellt varje gång någon kod commitas mot master-repot (i vårt fall vårt Github-repo). Detta eftersom defaultvärde på samtliga pipelines **Trigger** är master:
 
 *I .yml-filen för pipelinen*
 
@@ -56,11 +56,11 @@ Ibland är detta önskvärt, men problem uppstår dock då en viss pipeline mås
 
 ### Vår pipelinelösning för vårt API
 
-För att vårt API skulle lyckats laddas upp i ACR på Azure Portal behövde följande steg ske:
+För att vårt API skulle laddas upp i ACR på Azure Portal valde vi följande steg:
 
 1. En pipeline (pipeline 1) som bygger vår lösning och kör automatiska tester
 2. En pipeline (pipeline 2) som bygger en Docker image med **Tag: Build.buildnumber** och laddar upp i ett ACR.
-3. Pipeline 2 skall endast bygga en  Docker image om pipeline 1 lyckas.
+3. Pipeline 2 skall endast bygga en Docker image om pipeline 1 lyckas.
 
 Genom att vi ville ha pipeline 2 frikopplad från pipeline 1 uppstod ett problem då båda pipelinesen körde parallellt oberoende om den ena pipelinen lyckades eller ej. Lösningen var att länka ihop pipelinesen genom att i .yml trigga igång den andra pipelinen efter att första lyckats. En hel del research gjordes och slutligen hittades en lösning i följande dokumentation [Configure pipeline triggers - Azure Pipelines | Microsoft](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/pipeline-triggers?view=azure-devops&tabs=yaml). Koden läggs under den kommenterade texten som finns överst i .ymlfilen.
 
@@ -83,17 +83,15 @@ resources:
 
 Vad som händer sedan är att pipeline1 körs, som  triggas av master. Därefter fortsätter Steps och Tasks precis som vanligt i Pipeline2.yml.
 
-## Bygga pipelines utefter olika kataloger i Github-repo
-
 ## Artifacts
 
 ## Release Pipeline
 
 ## Utmaningar
 
-Vilket sätt är rätt? Det finns nog inget svar på detta eftersom att det går att göra på flera olika sätt och möjligheten hur man kombinerar dessa sätt är oändliga. Vissa väljer att lägga in massvis med kod och kör allt i sin .yml fil. Andra föredrar classic pipeline och jobba agenter och via det visuella, medan det slutligen även går att göra både och. Bygga flera olika pipelines eller en enda lång. Det är inte konstigt om det skulle finnas personer som endast sitter med Azure Devops på heltid. Den största utmaningen var att förstå hur allt hänger ihop. Att du kan bygga på en .yml-fil (efter du skapat den), med massa olika steps och tasks. Du kan även länka in config-filer och flera andra typer av filer som du anger i .yml-filen. Det hjälpte att ha egna testprojekt vid sidan om huvudprojektet där det gick att sitta och experimentera sig fram vad olika tasks och variabler gjorde.
+Vilket sätt är rätt? Det finns nog inget svar på detta eftersom att det går att göra på flera olika sätt och möjligheten hur man kombinerar dessa sätt är oändliga. Vissa väljer att lägga in massvis med kod och kör allt i sin .yml fil. Andra föredrar classic pipeline och jobba agenter och via det visuella gränssnittet. Skall man bygga flera olika pipelines eller en enda lång? Det är inte konstigt om det skulle finnas personer som endast sitter med Azure Devops på heltid. Den största utmaningen var att förstå hur allt hänger ihop. Att du kan bygga ut en .yml-fil (efter du skapat den), med massa olika steps och tasks. Du kan även länka in config-filer och flera andra typer av filer som du anger i .yml-filen. Det hjälpte att ha egna testprojekt vid sidan om huvudprojektet där det gick att sitta och experimentera sig fram vad olika tasks och variabler gjorde.
 
-Vad gäller Releas-pipelinen är det samma där. Du kan kombinera olika agenter, steps och tasks som i slutändan resulterar i en enda release. Kombinationerna även där är oändliga.
+Vad gäller Release-pipelinen är det samma där. Du kan kombinera olika agenter, steps och tasks som i slutändan resulterar i en enda release. Kombinationerna även där är oändliga.
 
 Boards var ett bra verktyg med subtasks som visades tydligt samt att det var bra att samla så  mycket som möjligt på ett enda ställe. Samtidigt kanske du ha din kanban fristående alla olika Devops-system.
 
