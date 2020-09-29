@@ -20,9 +20,9 @@ Keyvault var lite lurigt att få till då det inte finns så mycket lättförst�
 
 Följande länk hittas youtubeklippet: [[.Net Core] With Azure: Using Azure Key Vault to store Secrets](https://www.youtube.com/watch?v=yRf-doZMIBw)
 
-Istället som för klippet, där implementationen av klassen han skapade låg i program.cs, använde vi den istället i vår SpaceParkContext där vår connectionstring till vår databas finns:
+Istället som för klippet, där implementationen av klassen han skapade låg i program.cs, använde vi den istället i vår SpaceParkContext där vår connectionstring till vår databas finns, samt att vi även försäkrade oss med en lokal fallback utifall vår secret slutade fungera av någon anledning:
 
-
+![](D:\DOT.NET\Molntjänster\Projekt\spacepark-grupp-1-spacepark\Documentation\Solution\img\keyvault_implementation.PNG)
 
 ## Tester
 
