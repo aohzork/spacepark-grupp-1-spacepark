@@ -21,3 +21,15 @@ class Person {
     }
 }
 
+
+class ParkingSpace{
+
+    constructor(Spaceship, parkinglot){
+        this.ID;
+        this.SpaceShip=Spaceship
+        this.ParkingLot=parkinglot
+    }
+
+
+}
+
