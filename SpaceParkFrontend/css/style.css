@@ -60,6 +60,7 @@ button{
     align-items: center;
 }
 
+
 button img{
     width: 20px;
     height: 20px;
@@ -144,9 +145,22 @@ input{
     margin: 10px 5px 10px 5px
 }
 
-
 /**end executeButtons**/
 /**END Form**/
+
+
+
+/** ErrorMessage <p> **/
+
+p{
+    color: rgb(251, 40, 40);
+    padding-top: 10px;
+    margin-bottom: -15px;
+}
+
+/** END ErrorMessage **/
+
+
 
  /****Logo***/
 
