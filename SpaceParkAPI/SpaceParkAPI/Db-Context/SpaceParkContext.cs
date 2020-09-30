@@ -37,7 +37,11 @@ namespace SpaceParkAPI.Db_Context
                 optionsBuilder.UseSqlServer(azureDbCon);
             }*/
 
-            optionsBuilder.UseSqlServer(_configuration.GetConnectionString("DefaultConnection"));
+            var azureDbCon = _aKVService.GetKeyVaultSecret("https://spaceparkkv.vault.azure.net/secrets/dbcon/177aa99fc9a64986b14bb47e92d82012");           
+            optionsBuilder.UseSqlServer(azureDbCon);
+
+
+            //optionsBuilder.UseSqlServer(_configuration.GetConnectionString("DefaultConnection"));
         }
 
         
