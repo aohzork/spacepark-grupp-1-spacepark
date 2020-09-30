@@ -51,8 +51,6 @@ const deleteSpaceship = async (id) => {
     try {
         //Save the person that belongs to the ship to delete it after the ship has been deleted
         let person = getSpaceship(id).then(result => JSON.parse(result));
-        //person = 
-
         let response = await fetch(`https://localhost:44350/api/v1.0/spaceship/${id}`,
             { method: "DELETE" }
         );
@@ -122,29 +120,30 @@ const deletePerson = async (name) => {
 };
 
 
-const deletePersonById = async (id) => {
+const deletePersonById = async(id) => {
     try {
         let response = await fetch(`https://localhost:44350/api/v1.0/person/${id}`, 
+            {method: 'DELETE'});
+        return response.json;
+    } catch (error) {
+        console.error(error);
+    }
+};
 
 
 
-const deleteParkingSpace = async (id) => {
-            try {
-                let response = await fetch(`https://localhost:44350/api/v1.0/ParkingSpace/${id}`,
+const deleteParkingSpace = async(id) => {
+    try {
+        let response = await fetch(`https://localhost:44350/api/v1.0/ParkingSpace/${id}`,
+            {method: 'DELETE'});
+        return response.json;
+    } catch (error) {
+        console.error(error);
+    }
+};
 
-                    { method: 'DELETE' });
-                return response.json;
-            } catch (error) {
-                console.error(error);
-            }
-
-        };
-
-    };
-
-
-    const postParkingSpace = async (ParkingSpaceObject) => {
-        try {
+const postParkingSpace = async(ParkingSpaceObject) => {
+    try {
 
             //Do request
             let response = await fetch(`https://localhost:44350/api/v1.0/ParkingSpace`,
@@ -164,6 +163,3 @@ const deleteParkingSpace = async (id) => {
             console.error(error);
         }
     };
-
-
-
