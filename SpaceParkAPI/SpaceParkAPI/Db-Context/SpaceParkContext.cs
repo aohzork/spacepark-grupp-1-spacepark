@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using SpaceParkAPI.Models;
-using SpaceParkAPI.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +12,6 @@ namespace SpaceParkAPI.Db_Context
     {
         public SpaceParkContext() { }
         private IConfiguration _configuration;
-        AzureKeyVaultService _aKVService = new AzureKeyVaultService();
 
         public SpaceParkContext(IConfiguration config, DbContextOptions<SpaceParkContext> options) : base(options)
         {
@@ -27,15 +25,7 @@ namespace SpaceParkAPI.Db_Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var azureDbCon = _aKVService.GetKeyVaultSecret("https://spaceparkkv.vault.azure.net/secrets/dbcon/177aa99fc9a64986b14bb47e92d82012");
-            if(string.IsNullOrEmpty(azureDbCon))
-            {
-                optionsBuilder.UseSqlServer(_configuration.GetConnectionString("DefaultConnection"));               
-            }
-            else
-            {
-                optionsBuilder.UseSqlServer(azureDbCon);
-            }        
+            optionsBuilder.UseSqlServer("Server=tcp:parkingspaceapi.database.windows.net,1433;Initial Catalog=StarwarsDBGroup1;Persist Security Info=False;User ID=swadmin;Password=starwarsadmin1234!!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");               
         }
 
         
