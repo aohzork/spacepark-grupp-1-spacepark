@@ -133,6 +133,19 @@ input{
     margin: 23px 0px 20px 0px;
     
 }
+
+/**executeButtons**/
+.executeButtons{
+    display: flex;
+    flex-direction: row;
+}
+
+.executeButtons button{
+    margin: 10px 5px 10px 5px
+}
+
+
+/**end executeButtons**/
 /**END Form**/
 
  /****Logo***/
