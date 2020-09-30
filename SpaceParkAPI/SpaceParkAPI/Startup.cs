@@ -33,7 +33,8 @@ namespace SpaceParkAPI
                     "AllowFrontEnd",
                     builder =>
                     {
-                        builder.WithOrigins("http://127.0.0.1:5500")
+                        builder.WithOrigins("http://127.0.0.1:5500",
+                                            "https://frontendwebsw.azurewebsites.net/")
                         .AllowAnyMethod()
                         .AllowAnyHeader();
                     });
