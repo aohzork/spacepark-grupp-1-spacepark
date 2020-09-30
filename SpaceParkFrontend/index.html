@@ -22,20 +22,19 @@
             <button id="unpark">Unpark</button>
         </div>
 
-        <form action="" method="GET">
+        <form id="inputForm" action="" method="GET">
             <div class="inputElements">
-                <input type="text" placeholder="Name">
-                <input type="email" placeholder="Luke@example.com">
-                <div class="search_categories">
+                <input onkeyup="validateButton()" id="namebox" type="text" placeholder="Name">
+                <input id="emailbox" type="email" placeholder="Test@example.com">
+                <div id="shipDropdown" class="search_categories">
                     <div class="select">
                         <select name="search_categories" id="search_categories">
                             <option value="1" selected="selected">Choose a ship to park</option>
-                            <option value="2">x-wing</option>
-                            <option value="3">Death star</option>
-                            <option value="4">Rostig Amazon</option>
                         </select>
                     </div>
                 </div>
+
+
                 <button type="submit">
                     <img src="img/parking.svg">Park
                 </button>
@@ -49,8 +48,10 @@
         </div>
     </div>
 
+    <button onclick="getStarShipsFromInput()" id="validate">Validate</button>
 
     <script src="js/script.js"></script>
+    <script src="js/checkInputOnSwapi.js"></script>
 </body>
 
 </html>
