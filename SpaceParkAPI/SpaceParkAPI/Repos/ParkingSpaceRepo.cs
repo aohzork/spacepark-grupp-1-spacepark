@@ -25,9 +25,24 @@ namespace SpaceParkAPI.Repos
         {
             _logger.LogInformation($"Getting ParkingSpace with ID: {id}");
 
-            IQueryable<ParkingSpaceModel> query = _spaceParkContext.ParkingSpaces.Where(y => y.ID == id); 
+            IQueryable<ParkingSpaceModel> query = _spaceParkContext.ParkingSpaces.Where(y => y.ID == id)
+                .Include(ps => ps.Spaceship).ThenInclude(s => s.Person); 
 
             query = ParkingSpaceQuery(query);
+            query = query.Select(ps => new ParkingSpaceModel
+            {
+                ID = ps.ID,
+                ParkingLotID = ps.ParkingLotID,
+                Spaceship = new SpaceshipModel
+                {
+                    ID = ps.Spaceship.ID,
+                    Person = new PersonModel
+                    {
+                        ID = ps.Spaceship.Person.ID,
+                        Name = ps.Spaceship.Person.Name
+                    }
+                }
+            });
 
             return await query.SingleOrDefaultAsync(); 
         }
