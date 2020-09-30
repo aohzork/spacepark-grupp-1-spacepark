@@ -61,6 +61,7 @@ namespace SpaceParkAPI.Controllers
         }
 
         //api/v1.0/Spaceship/##
+        [EnableCors("AllowFrontEnd")]
         [HttpDelete("{id}")]
         public async Task<ActionResult<SpaceshipModel>> DeleteSpaceship(long id)
         {            
