@@ -124,3 +124,28 @@ const deletePerson = async(name) => {
         console.error(error);
     }
 };
+
+
+
+const postParkingSpace = async(ParkingSpaceObject) => {
+    try {
+
+        //Do request
+        let response = await fetch(`https://localhost:44350/api/v1.0/ParkingSpace`, 
+            {
+                method: 'POST',
+                headers: {'Content-Type': `application/json`},
+                body: ParkingSpaceObject.ToJsonString()
+            });
+
+        //Log the response to console
+        console.log(response);
+
+        //Get the response body as json and return it
+        let json = response.json();
+        return json;
+    } catch (error) {
+        console.error(error);
+    }
+};
+

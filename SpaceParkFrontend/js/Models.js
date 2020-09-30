@@ -38,3 +38,15 @@ class Spaceship {
     }
 }
 
+
+class ParkingSpace{
+
+    constructor(Spaceship, parkinglot){
+        this.ID;
+        this.SpaceShip=Spaceship
+        this.ParkingLot=parkinglot
+    }
+
+
+}
+
