@@ -108,3 +108,35 @@ Efter övervägande, valde istället statiskt hemsida med javascript. Detta pga 
 ***kvällsuppdatering:** Har gjort en hel del research på att bygga en statisk hemsida med javascript i azure devops pipeline och få den att köra med webservices i azure. Har till slut lyckats. Tog mitt slutprojekt i Frontendkursen och experimenterade med. Dessutom lyckades jag trigga pipeline 2 (bygga image och skicka upp till ARC), efter att pipeline1 byggts. https://statichtmlcatalogue.azurewebsites.net/
 
 Går även att deploya en statisk sida till en storage account - blob storage och visa som hemsida. Populärt då man inte behöver en backendserver i samma projekt. Ex visa en enkel landingpage eller ett mindre företag. Mycket billigare än en webservice.
+
+### Problem vi stött på:
+
+PIPELINE:
+
+Få docker-filen att fungera som den skulle, Den autogenererade dockerfilen ville inte fungera tillsammans med pipelinen. Den lades sedan i samma mapp som solutionen och då fungerade det. Problemet hade med sökvägarnas utformning i mappstrukturen i projektet att göra.
+
+Samma som med docker filen så var även YAML-filerna lite svåra att förstå. Vi tror det hade varit bra att läsa på om syntaxen och kommandona lite grand för både YAML och Docker.
+
+
+
+CORS:
+
+Detta var något vi inte fått lära oss i tidigare kurser men har varit topp en att få lära sig nu! Problemet var att vi inte kunde göra requests med java-script. löste det genom att läsa på och få hjälp av stephan. När man kom in i det kunde man lösa det mesta på egen hand.
+
+
+
+FECTH:
+
+Sebastians fetch-metoder i frontenden slutade fungera av okänd anledning. Ännu inte funnit någon lösning.
+
+
+
+TESTER:
+
+Vi hade mycket problem med att mocka våra repon. Vi kunde få controllertester att köra med moq efter mycket om och men, men repotesterna fick vi inte att fungera.
+
+
+
+RELATIONER: 
+
+På grund av det sätt som relationerna var uppsatta på så kunde vi inte göra en "cascade-delete", dvs. att tar man bort en förälder så tar man även bort dennes barn. Vi såg detta såpass sent i projektet att vi inte hade tid att fixa till det.

@@ -54,15 +54,25 @@ trigger:
 
 Ibland är detta önskvärt, men problem uppstår dock då en viss pipeline måste köra klart innan en annan pipeline kan köra. I vårt fall vår **bygg och test-pipeline för vårt API**.
 
-### Vår pipelinelösning för vårt API
+### Vår pipelinelösning för vårt projekt
 
-För att vårt API skulle laddas upp i ACR på Azure Portal valde vi följande steg:
+Vi har totalt tre pipelines för vårt projekt som vi döpt följande för att lättare hålla reda på  dem:
 
-1. En pipeline (pipeline 1) som bygger vår lösning och kör automatiska tester
-2. En pipeline (pipeline 2) som bygger en Docker image med **Tag: Build.buildnumber** och laddar upp i ett ACR.
-3. Pipeline 2 skall endast bygga en Docker image om pipeline 1 lyckas.
+**Pipeline Backend API Build + Tests** (pipeline 1)
 
-Genom att vi ville ha pipeline 2 frikopplad från pipeline 1 uppstod ett problem då båda pipelinesen körde parallellt oberoende om den ena pipelinen lyckades eller ej. Lösningen var att länka ihop pipelinesen genom att i .yml trigga igång den andra pipelinen efter att första lyckats. En hel del research gjordes och slutligen hittades en lösning i följande dokumentation [Configure pipeline triggers - Azure Pipelines | Microsoft](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/pipeline-triggers?view=azure-devops&tabs=yaml). Koden läggs under den kommenterade texten som finns överst i .ymlfilen.
+**Pipeline Backend  API publish  Docker to ACR** (pipeline 2)
+
+**Pipeline Frontend publish Docker to ARC** (pipeline 3)
+
+![](D:\DOT.NET\Molntjänster\Projekt\spacepark-grupp-1-spacepark\Documentation\Solution\img\pipelines.PNG)
+
+För att vårt projekt skulle laddas upp i ACR på Azure Portal valde vi följande steg:
+
+1. Pipeline 1 som bygger vår Backend API lösning och kör automatiska tester
+2. Pipeline 2 som bygger en Docker image av vår Backend API med **Tag: Build.buildnumber** och laddar upp i ett ACR. Men endast om Pipeline 1 lyckas
+3. Pipeline 3 bygger en en Docker image av vår Frontend med Tag: Build.buildnumber och laddar upp till samma ARC som vår Backend image.
+
+Genom att vi ville ha pipeline 2 frikopplad från pipeline 1 uppstod ett problem då båda pipelinesen körde parallellt oberoende om den ena pipelinen lyckades eller ej. Lösningen var att länka ihop pipelinesen genom att i .yml (för pipeline 2) trigga igång den andra pipelinen efter att första lyckats. En hel del research gjordes och slutligen hittades en lösning i följande dokumentation [Configure pipeline triggers - Azure Pipelines | Microsoft](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/pipeline-triggers?view=azure-devops&tabs=yaml). Koden läggs under den kommenterade texten som finns överst i .ymlfilen.
 
 *Översatt till lättare pseudokod som används i vår lösning samt ett tillägg:*
 `Pipeline2.yml`
@@ -81,11 +91,21 @@ resources:
 
 <u>*Trigger: none*</u> är tillägget som gör att pipeline2 endast triggas efter pipeline 1 har passerat OK. Utan detta tillägg, körde Pipeline2 ändå samtidigt som Pipeline1 av någon anledning.
 
-Vad som händer sedan är att pipeline1 körs, som  triggas av master. Därefter fortsätter Steps och Tasks precis som vanligt i Pipeline2.yml.
+Vad som händer sedan är att pipeline1 körs, som triggas av master. Därefter fortsätter Steps och Tasks precis som vanligt i Pipeline2.yml.
 
 ## Artifacts
 
+När vi pratar Release Pipeline och artifacts pratar vi om distribuerbara komponenter. Exempelvis produceras en artifact som slutprodukt av en vanlig pipeline.  I vårt fall är våra release artifacts våra image-filer som producerades av våra pipelines, som laddades upp till en ACR.
+
 ## Release Pipeline
+
+![](D:\DOT.NET\Molntjänster\Projekt\spacepark-grupp-1-spacepark\Documentation\Solution\img\releasepipeline_frontend.PNG)
+
+För vår lösning använder vi oss av **två fristående Release pipelines**; en för vårt <u>API</u> samt en för vår <u>Frontend</u>. Vi använder oss av en **artifact** för varje, där slutmålet är att göra en deploy till var sin **App Service** i **Azure Portal**. Varje artifact pekar/är kopplad mot en image i Azure Portal.
+
+När de båda pipelinesen körs igång, hämtas den senaste versionen av respektive image ner till artifactsen. Därefter skickas de vidare och kopplas ihop med våra App Services, vilket gör att det publikt går att komma åt dem via deras dns.
+
+Release pipelinesen är inställda på automatisk release då det sker en förändring i våra vanliga pipelines, ergo; det laddas upp en ny image-version i ARC.
 
 ## Utmaningar
 
