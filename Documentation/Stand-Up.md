@@ -1,5 +1,37 @@
 **Stand-Up **
 
+**29/9 2020 (Micael)**
+
+Gemensamt:
+
+Få till Releasepipeline
+
+Presentation - vem tar vilken del
+
+- 2 Micael - Prata om Devops pipelines och research relaterat, Tester i API
+- 3 Sebastian -  Backend, Azure
+- 5 Andreas - Frontend bla. olika js
+- 4 Eric - Frontend uppbyggnad/UI, Azure Devops
+- 1 Hampus - Olika problem; tex pipeline, cors, fetch mm, planering
+
+Feedback på Torsdag EM
+
+Deadline till Micael: Lördag FM kl 12
+
+Färger PPT: 
+
+- Micael - röd
+- Andreas - blå
+- Sebastian - grön
+- Eric - grå
+- Hampus - orange
+
+**28/9 2020 (Sebastian)**
+
+Gemensamt:
+
+- Göra våra pipelines
+
 **23/9 2020 (Hampus):**
 
 Gemensamt:

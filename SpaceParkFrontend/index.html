@@ -7,9 +7,7 @@
     <title>Welcome to SpacePark</title>
     <script src="js/jquery-3.5.1.min.js"></script>
     <link rel="stylesheet" href="css/style.css">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&family=Orbitron&family=Rajdhani:wght@600&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300&family=Orbitron&family=Rajdhani:wght@600&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -28,15 +26,14 @@
                 <input id="emailbox" type="email" placeholder="Test@example.com">
                 <div id="shipDropdown" class="search_categories">
                     <div class="select">
-                        <select name="search_categories" id="search_categories">
+                        <select name="search_categories" id="search_categories" required>
                             <option value="1" selected="selected">Choose a ship to park</option>
                         </select>
                     </div>
                 </div>
 
-
-                <button type="submit">
-                    <img src="img/parking.svg">Park
+                <button type="submit" id="submit">
+                    <img id="pic" src="img/parking.svg">Park
                 </button>
             </div>
         </form>
@@ -48,10 +45,12 @@
         </div>
     </div>
 
-    <button onclick="getStarShipsFromInput()" id="validate">Validate</button>
 
-    <script src="js/script.js"></script>
+    <button onclick="getStarShipsFromInput()" id="validate">Validate</button>
     <script src="js/checkInputOnSwapi.js"></script>
+    <script src="js/Models.js"></script>
+    <script src="js/BackendApiCalls.js"></script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>

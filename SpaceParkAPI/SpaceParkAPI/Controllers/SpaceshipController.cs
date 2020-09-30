@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SpaceParkAPI.Models;
 using SpaceParkAPI.Repos;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SpaceParkAPI.Controllers
 {
-    [Route("spapi/v1.0/[controller]")]
+    [Route("api/v1.0/[controller]")]
     [ApiController]
     public class SpaceshipController : ControllerBase
     {
@@ -18,9 +19,10 @@ namespace SpaceParkAPI.Controllers
             _spaceshipRepo = spaceshipRepo;
         }
 
-        //spapi/v1.0/Spaceship/##
+        //api/v1.0/Spaceship/##
+        [EnableCors("AllowFrontEnd")]
         [HttpGet("{id}")]
-        public async Task<ActionResult<SpaceshipModel>> GetSpaceshipById(long id)
+        public async Task<ActionResult> GetSpaceshipById(long id)
         {
             try
             {
@@ -38,7 +40,8 @@ namespace SpaceParkAPI.Controllers
             }
         }
 
-        //spapi/v1.0/Spaceship
+        //api/v1.0/Spaceship
+        [EnableCors("AllowFrontEnd")]
         [HttpPost]
         public async Task<ActionResult<PersonModel>> PostEvent(SpaceshipModel spaceshipModel)
         {
@@ -57,7 +60,7 @@ namespace SpaceParkAPI.Controllers
             return BadRequest();
         }
 
-        //spapi/v1.0/Spaceship/##
+        //api/v1.0/Spaceship/##
         [HttpDelete("{id}")]
         public async Task<ActionResult<SpaceshipModel>> DeleteSpaceship(long id)
         {            

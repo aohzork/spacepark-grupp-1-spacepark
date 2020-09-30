@@ -6,10 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using SpaceParkAPI.Models;
 using SpaceParkAPI.Repos;
+using Microsoft.AspNetCore.Cors;
 
 namespace SpaceParkAPI.Controllers
 {
-    [Route("spapi/v1.0/[controller]")]
+    [Route("api/v1.0/[controller]")]
     [ApiController]
     public class ParkingSpaceController : ControllerBase
     {
@@ -20,6 +21,8 @@ namespace SpaceParkAPI.Controllers
             _parkingSpaceRepo = parkingSpaceRepo;
         }
 
+        //api/v1.0/ParkingSpace/##
+        [EnableCors("AllowFrontEnd")]
         [HttpGet("{id}")]
         public async Task<ActionResult> GetParkingSpaceById(int id)
         {
@@ -39,7 +42,25 @@ namespace SpaceParkAPI.Controllers
             }
             
         }
-
+        [EnableCors("AllowFrontEnd")]
+        [HttpPost]
+        public async Task<ActionResult<ParkingSpaceModel>> PostParkingSpace(ParkingSpaceModel parkingSpaceModel)
+        {
+            try
+            {
+                _parkingSpaceRepo.Add(parkingSpaceModel);
+                if (await _parkingSpaceRepo.Save())
+                {
+                    return Created($"/api/v1.0/Spaceship/{parkingSpaceModel.ID}", parkingSpaceModel);
+                }
+            }
+            catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Database Failure: {e.Message}");
+            }
+            return BadRequest();
+        }
+        [EnableCors("AllowFrontEnd")]
         [HttpDelete("{id}")]
         public async Task<ActionResult> DeleteParkingSpace(int id)
         {
