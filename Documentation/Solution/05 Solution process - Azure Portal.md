@@ -33,9 +33,19 @@ Såhär ser vår backend ut i azure:
 
 ## Val av databas
 
-Valet föll som tidigare nämnt på en SQL databas med standardinställningar
+Vi valde en SQL server eftersom den mappade bra mot Entity Frameworks. Databasen fixade vi som tidigare nämnt i Solution Process - API, ville vi ha databasen uppe och snurrande redan från start så att vi visste att det fungerade. Vi valde **Tier Basic**. Denna kommer med en storlek på 2GB samt 5st DTU:er. Mer om DTU:er och lagringskapacitet och begränsningar i [denna artikeln](https://docs.microsoft.com/sv-se/azure/azure-sql/database/service-tiers-dtu#elastic-pool-edtu-storage-and-pooled-database-limits).
+
+Databasen fungerar bra för den som endast behöver en databas utan några speciella krav för att lagra information. Du kan när som helst skala upp databasen till nästa Tier (Standard).
+
+Med Elastiskt skalning får du mer lagringsutrymme till en viss gräns.  Dock kostar detta mer. Olika standardinställningar följer med såsom Business Intelligence, Frågeredigerare, Geo-replikering (duplicering av databaser till andra regioner) med mera.
+
+
 
 ## Kostnadsjämförelser
+
+I detta avsnitt visas lite olika kostnadsjämförelser mellan olika tjänster och kostnadsnivåer (Tiers) inom samma tjänst.
+
+### Webhosting
 
 Oavsett vilken typ Webhosting tjänst man väljer kostar det olika mycket beroende på vad för typ av konfiguration man väljer samt olika tillägg.
 
@@ -57,4 +67,23 @@ Det går lätt att skala upp och ner i prestandan. Du väljer och trycker på an
 
 För en hemsida i en Blob storage lågfrekvent aktivitet, minskat utrymme till 2GB istället för 1TB är kostnaden per månad ca  **12 USD**.
 
+### Databas
+
+#### DTU-baserade alternativ
+
+| Tier     | Lagring GB | Standard DTU | Pris/mån SEK | Max DTU | Max Lagring GB | Pris/mån SEK |
+| -------- | ---------- | ------------ | ------------ | ------- | -------------- | ------------ |
+| Basic    | 2          | 5            | 43,61        | 5       | 2              | 43,61        |
+| Standard | 250        | 10           | 131,06       | 3000    | 1000           | 41144,18     |
+| Premium  | 500        | 125          | 4560,25      | 4000    | 4096           | 156980,98    |
+
+#### Virtuella kärnor
+
+Det går även att välja databaser med virtuella kärnor; både som etablerad och serverlös. En stor faktor som skiljer mellan etablerad kontra serverlös databas är att etablerade databaser kostnadsberäknas per timma medan serverlösa beräknas per sekund. En annan viktig skillnad är att det går att stoppa serverlösa databaser när de inte används såsom det går med andra tjänster som exempelvis en ACI (Azure Container Instance).
+
+Likväl här finns olika tiers; **Allmän, Storskalig och Verksamhetskritisk**. Lägsta kostnaden för Allmän är ca 3319 SEK. Storskalig ca 5440 SEK och Verksamhetskritisk ca 4620 SEK. Med konfigurationer på höga krav på databasen kommer priset öka drastiskt.
+
+
+
 ## Utmaningar
+
