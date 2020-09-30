@@ -12,13 +12,11 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using SpaceParkAPI.Repos;
 using SpaceParkAPI.Db_Context;
-using SpaceParkAPI.Services;
 
 namespace SpaceParkAPI
 {
     public class Startup
     {
-        AzureKeyVaultService _aKVService = new AzureKeyVaultService();
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
