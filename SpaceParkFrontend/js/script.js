@@ -25,3 +25,7 @@ $(() => {
         }
     });
 });
+
+let p = getSpaceship(1).then(result => result);
+p.then(result => console.log(result));
+
