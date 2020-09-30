@@ -18,9 +18,28 @@ Det finns några andra alternativ för en simpel frontendhemsida. Bland annat sk
 
  Vill man vara kostnadseffektiv så kan det löna sig att titta på andra alternativ än App Service. Dock bör man vara medveten om vilka features som följer med de olika alternativen.
 
-### Kostnadsjämförelser
+### Frontend
+
+Såhär ser vår frontend ut i azure:
+![](D:\DOT.NET\Molntjänster\Projekt\spacepark-grupp-1-spacepark\Documentation\Solution\img\ap_frontend.PNG)
+
+### Backend
+
+Såhär ser vår backend ut i azure:
+
+![](D:\DOT.NET\Molntjänster\Projekt\spacepark-grupp-1-spacepark\Documentation\Solution\img\ap_backend.PNG)
+
+
+
+## Val av databas
+
+Valet föll som tidigare nämnt på en SQL databas med standardinställningar
+
+## Kostnadsjämförelser
 
 Oavsett vilken typ Webhosting tjänst man väljer kostar det olika mycket beroende på vad för typ av konfiguration man väljer samt olika tillägg.
+
+#### App Service
 
 För vår App Service finns det flera olika Tiers och vi valde ett gratisalternativ då vi inte visste hur länge våra gratiskrediter skulle vara. Det finns även en uppgradering för ett kostnadsalternativ för denna tier.
 
@@ -34,6 +53,8 @@ Flyttar vi däremot upp en Tier Produktion, såsom sig bör om du har en någorl
 
 Det går lätt att skala upp och ner i prestandan. Du väljer och trycker på använd, så har du bytt och dina krediter börjar direkt räknas utefter det nya valda alternativet.
 
-Val av databas
+#### Blob storage
 
-Utmaningar
+För en hemsida i en Blob storage lågfrekvent aktivitet, minskat utrymme till 2GB istället för 1TB är kostnaden per månad ca  **12 USD**.
+
+## Utmaningar
