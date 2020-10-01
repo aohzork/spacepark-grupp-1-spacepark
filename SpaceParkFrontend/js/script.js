@@ -1,5 +1,3 @@
-deleteSpaceship(5);
-
 $(() => {
 
     let i = 0;
