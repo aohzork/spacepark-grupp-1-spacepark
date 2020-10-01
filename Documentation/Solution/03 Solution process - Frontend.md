@@ -124,7 +124,7 @@ function getStarShipsFromSwapi(input) {
 
 ## Presentationslogik
 
-ERIC FYLL PÅ HÄR
+ERIC OCH AMDREAS FYLL PÅ HÄR
 
 ## Metoder
 
@@ -136,5 +136,5 @@ Vi stötte på flera utmaningar som vi inte räknade med när vi utvecklade vår
 
 Att göra POST-requests från vår Frontend mot API:t var lite av en utmaning då CORS (Cross Origin Resource Sharing) satte stopp för det. Efter att ha läst på mer om det så förstod vi att för att skicka data i json-format via CORS så innebär det att det blir en "komplicerad" request (till skillnad från en "simpel" request). Det innebar att vi var tvugna att lägga till en header i anropet från Frontenden och att vi tillät den headern i API:t. Det går att läsa mer om detta i vår CORS-dokumentation.
 
-En annan utmaning var även att arbeta med 
+En annan utmaning var även att arbeta med asynchrona anrop i javascript. Vid en punkt under projektet slutade det helt fungera för en av oss av oförklarlig anledning (det funkade samtidigt för oss andra) samt att det tog lite tid att sätta sig in i hur den typen av anrop fungerar i javascript. Ett annat problem som stammade ur detta var också hur man väl använde resultatet av anropet när man väl gjort det (ett löfte returnerades istället för json-datan etc.). Vi fick till slut bukt på det men har nog fortfarande mer att lära. 
 
