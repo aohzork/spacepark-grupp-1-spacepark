@@ -87,3 +87,8 @@ Likväl här finns olika tiers; **Allmän, Storskalig och Verksamhetskritisk**. 
 
 ## Utmaningar
 
+Till större delen gick Azure Portal ganska smidigt, men innan  vi kom fram till vår slutgiltiga lösning gjorde vi en del tester i form av att skapa upp olika tjänster för att exempelvis se att det gick att placera ett HTML projekt i en webservice osv.
+
+Efter en refaktorering av databasen blev det en del fel på vår befintliga SQL-databas i Azure, så vi var tvungna att ta bort den och lägga till en ny. Som tur var, blev det samma connectionstring och lösenord eftersom databasen endast togs bort, ej databas-servern som wrappar databasen.
+
+Vi försökte oss som tidigare beskrivet i Backendavsnittet på oss på Key Vault. Tanken är god, men implementeringen var svår, då det verkar finns många olika krångliga lösningar på det. Eller att att vissa är utdaterade mot hur det ser ut och fungerar i Azure. Med mer tid kanske vi hade hittat en lösning.
