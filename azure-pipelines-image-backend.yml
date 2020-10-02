@@ -14,9 +14,9 @@ resources:
 
 variables:
   # Container registry service connection established during pipeline creation
-  dockerRegistryServiceConnection: '8ec5b71b-f55e-4e4f-a534-34474023f976'
+  dockerRegistryServiceConnection: '62347a91-0bf6-43fc-ad5d-4ca7956e3a26'
   imageRepository: 'apibackendimage'
-  containerRegistry: 'swapicontainerregistry.azurecr.io'
+  containerRegistry: 'swazurecontainerregistry.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/SpaceParkAPI/Dockerfile'
   tag: '$(Build.BuildId)'
   
