@@ -74,15 +74,16 @@ function person(name) {
     let request = new XMLHttpRequest();
     request.open("GET", url);
 
-    request.onload = function () {
-        try {
-            let data = JSON.parse(request.responseText);
-            alert(data.name + " har checkat ut")
-        } catch (error) {
-            alert("Du måste parkera innan du kan checka ut")
-        }
-    };
+    // request.onload = function () {
+    //     try {
+    //         let data = JSON.parse(request.responseText);
+    //         alert(data.name + " har checkat ut")
+    //     } catch (error) {
+    //         alert("Du måste parkera innan du kan checka ut")
+    //     }
+    // };
     request.send();
+    return request;
 }
 
 
@@ -96,11 +97,13 @@ const getPerson = async (name) => {
 
         console.log(response);
 
-        // let obj = new Person();
-        // obj = obj.MapFromJson(JSON.stringify(data));
-        return data;
+        let obj = new Person();
+        obj = obj.MapFromJson(JSON.stringify(data));
+        
+        return obj;
     } catch (error) {
-        console.error(error);
+        //console.error(error);
+        alert("Du måste parkera innan du kan checka ut")
     }
 };
 
