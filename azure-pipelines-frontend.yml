@@ -11,7 +11,7 @@ resources:
 variables:
   # Container registry service connection established during pipeline creation
   dockerRegistryServiceConnection: '629ac118-8952-4919-ba31-2c9f756808db'
-  imageRepository: 'backendimage'
+  imageRepository: 'frontendimage'
   containerRegistry: 'swazurecontainerregistry.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/SpaceParkAPI/Dockerfile'
   tag: '$(Build.BuildId)'
@@ -35,6 +35,6 @@ stages:
         command: buildAndPush
         repository: $(imageRepository)
         dockerfile: $(dockerfilePath)
-        containerRegistry: $(containerRegistry)
+        containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
