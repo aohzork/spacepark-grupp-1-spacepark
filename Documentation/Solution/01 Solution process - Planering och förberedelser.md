@@ -12,11 +12,11 @@ Vi satte kanske inte helt databasens struktur efter vår tanke helt från börja
 
 *Första iterationen av databasdiagrammet*
 
-![DBDesign_rev1](Documentation\DBDesign_rev1.PNG)
+![DBDesign_rev1](https://github.com/PGBSNH19/spacepark-grupp-1-spacepark/blob/master/Documentation/DBDesign_rev1.PNG)
 
 *Andra iterationen av databasdiagrammet*
 
-![DBDesign_rev2](Documentation\DBDesign_rev2.PNG)
+![DBDesign_rev2](https://github.com/PGBSNH19/spacepark-grupp-1-spacepark/blob/master/Documentation/DBDesign_rev2.PNG)
 
 
 
@@ -34,7 +34,7 @@ Det är viktigt i ett projekt att alla medlemmar är överens om vad som gäller
 
 För att kunna hålla koll på alla kriterier och regler för projektet gjordes en sammanfattning av projektinstruktionerna. Tanken var att vi då inte skulle missa några element som måste implementeras i vår lösning. 
 
-[Projektsammanfattning]: Documentation\Projectoutlineandrules.md
+[Projektsammanfattning]: https://github.com/PGBSNH19/spacepark-grupp-1-spacepark/blob/master/Documentation\Projectoutlineandrules.md
 
 
 
@@ -42,7 +42,7 @@ För att kunna hålla koll på alla kriterier och regler för projektet gjordes 
 
 Vi gjorde ett arbetsschema som talade om löst vilka tider på dagen som det är tänkt att man arbetar, hur vi gör med dokumentering av arbetet och hur vi gör med code reviews. Detta schema följdes inte strikt, vilket heller inte var tanken, men det gav en gemensam förståelse för alla hur var och en tänker. De dagar vi inte haft lektion har vi suttit från klockan 09-16 ibland 16.30. Har medlemmar behövt göra ärenden och  vara frånvarande vissa tider/dagar så har detta inte varit något problem så länge medlemmen meddelat det till gruppen. Vi lever alla olika liv där vi försöker lösa livspusslet på bästa sätt. Precis som på en vanlig arbetsplats.
 
-[Arbetsschema]: Documentation\Arbetsschema.md
+[Arbetsschema]: https://github.com/PGBSNH19/spacepark-grupp-1-spacepark/blob/master/Documentation\Arbetsschema.md
 
 
 
@@ -60,13 +60,13 @@ För att gemensamt komma överens om hur vi skulle hantera git-flödet gjordes �
 
 - <u>*Kritiska pullrequests*</u> - Ibland behövde vissa pull requests pushas in direkt i master utan review av olika anledningar. Dessa gick att merga in, sålänge resterande medlemmar i gruppen tyckte att det gick bra. Ett exempel kan vara att installera en viss Nuget som samtliga medlemmar i projektet var beroende av i sina branches
 
-[Git-Flöde]: Documentation\GitWorkflowRules.md
+[Git-Flöde]: https://github.com/PGBSNH19/spacepark-grupp-1-spacepark/blob/master/Documentation\GitWorkflowRules.md
 
 
 
 ## Boards och Issues
 
-![](Documentation\Solution\img\devops-boards.PNG)
+![Boards och Issues i DevOps](https://github.com/PGBSNH19/spacepark-grupp-1-spacepark/blob/master/Documentation\Solution\img\devops-boards.PNG)
 
 Vi började med *Jira* och *Sprintar* eftersom vi hade erfarenhet av det tidigare. Men kort därefter migrerade vi till *Devops Boards* som istället använde Kanban, vilket gick ganska så smidigt. Den stora fördelen var att ha så mycket som möjligt samlat på ett ställe samt att vi kände att det kunde vara roligt att lära sig något nytt. Vissa delar ur Devops Boards var lättare och tydligare såsom SubTasks till ett Issue/Task. Andra delar var lite otydligare, såsom datum-märkning av klara Issues.  Detta var Jira överlägsen att på ett tydligt sätt visa.
 
