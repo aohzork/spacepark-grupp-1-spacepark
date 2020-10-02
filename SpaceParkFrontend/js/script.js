@@ -1,4 +1,3 @@
-deleteSpaceship(5);
 
 $(() => {
 
@@ -17,15 +16,18 @@ $(() => {
     });
 
     $("#submit").click(() => {
-        if (i = 1) {
+        if (i === 1) {
             park();
+
         }
-        if (i = 2) {
+        if (i === 2) {
             unpark();
         }
+
     });
 });
-
-let p = getSpaceship(1).then(result => result);
-p.then(result => console.log(result));
+function unpark() {
+    let name = $("#namebox").val();
+    person(name);
+}
 
