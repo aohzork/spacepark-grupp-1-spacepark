@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using SpaceParkAPI.Models;
-using SpaceParkAPI.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +12,6 @@ namespace SpaceParkAPI.Db_Context
     {
         public SpaceParkContext() { }
         private IConfiguration _configuration;
-        AzureKeyVaultService _aKVService = new AzureKeyVaultService();
 
         public SpaceParkContext(IConfiguration config, DbContextOptions<SpaceParkContext> options) : base(options)
         {

@@ -9,4 +9,4 @@
 
 
 
-![Git Workflow](https://github.com/PGBSNH19/spacepark-grupp-1-spacepark/blob/master/Documentation/Git%20Workflow.png)
+![Git Workflow](C:\Users\hampe\Repos\Skola\Molntjänster\Projekt\spacepark-grupp-1-spacepark\Documentation\Git Workflow.png)

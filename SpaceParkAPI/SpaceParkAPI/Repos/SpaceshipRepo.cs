@@ -22,6 +22,17 @@ namespace SpaceParkAPI.Repos
             _logger.LogInformation($"Getting Spaceship with ID: {id}");
 
             IQueryable<SpaceshipModel> query = _spaceParkContext.Spaceships.Where(s => s.ID == id).Include(p => p.Person);
+            query = query.Select(s => new SpaceshipModel
+            {
+                ID = s.ID,
+                ParkingSpaceID = s.ParkingSpaceID,
+                Person = new PersonModel
+                {
+                    ID = s.Person.ID,
+                    Name = s.Person.Name,
+                    SpaceshipID = s.Person.SpaceshipID
+                }
+            });
 
             query = SpaceshipQuery(query);
 

@@ -14,11 +14,13 @@ Vi modellerade upp vår databas utefter vår databasdesign vi tog fram i samband
 
 ### Connectionstring
 
-Vår connectionstring hämtade vi i Azure efter vi skapat vår databas. Eftersom vi lade den i vår appsettings.json fick vi även sedan i Azure Portal skapa en keyvault som höll vår connectionstring som kopplade ihop våra andra resurser som också låg i Azure Portal (Frontend, API, SQL).
+Vår connectionstring hämtade vi i Azure efter vi skapat vår databas. Eftersom vi lade den i vår appsettings.json. Tanken var att sedan även i Azure Portal skapa en keyvault som höll vår connectionstring som kopplade ihop våra andra resurser som också låg i Azure Portal (Frontend, API, SQL).
 
 ### KeyVault
 
-Keyvault var lite lurigt att få till då det inte finns så mycket lättförståelig dokumentation på det. Men som tur var lyckades vi hitta ett youtubeklipp med en enkel lösning som var lätt att modifiera och implementera.
+Key Vault var väldigt lurigt att få till och vi lyckades tyvärr inte riktigt helavägen eftersom det endast finns ej aktuell, svår eller bristfällig information  Men detta är inte den enda anledningen, utan tekniska problem ställde även till det för oss också så att vi i slutändan övergav idén i brist på tid till deadline av projektet. 
+
+Till en början lyckades vi få till en lösning relativt snabbt genom att vi lyckades vi hitta ett youtubeklipp med en enkel lösning som var lätt att modifiera och implementera.
 
 Följande länk hittas youtubeklippet: [[.Net Core] With Azure: Using Azure Key Vault to store Secrets](https://www.youtube.com/watch?v=yRf-doZMIBw)
 
@@ -26,7 +28,15 @@ Istället som för klippet, där implementationen av klassen han skapade låg i 
 
 ![](D:\DOT.NET\Molntjänster\Projekt\spacepark-grupp-1-spacepark\Documentation\Solution\img\keyvault_implementation.PNG)
 
+Dock visade sig detta fungera endast för utvecklingsmiljö, så att så fort vi körde det genom våra pipelines och upp till vårt API App Service i Azure, fungerade det inte längre. Felmeddelande om servicen inte lyckades att Autentisera sig mot Key Vault. Något saknades. Efter mycket experimenterande lyckades vi få till det genom Connected Services Azure Key Vault och några fler nugets som installerades i samband. Genom att använda Connected Services, så lades det till nödvändiga  parametrar och kod i bland annat launchsettings.json & Program.cs.
 
+För att inte merga in detta  direkt i master, då vi inte kunde testa skarpt i vår riktiga Backend  App i Azure, använde vi Build -> Publish to Azure, där vi genom konfigurationer skapade upp en temporär App Service. 
+
+Nu fungerade det äntligen med externt för samtliga medlemmar. Men, så fort vi gjorde en merge av branchen till Master, och vår release pipeline laddade upp till vår riktiga Service App för vårt Backend, så slutade hela sidan att fungera. I Loggarna stod det att den inte klarade att starta imagen.
+
+**<u>För att komma vidare samt att kursens fokus låg på Azure, tog hela gruppen ett beslut på att klistra in hela connectionstringen synligt i vår OnConfiguring metod.</u>** Nu fungerade det externt i vår Backend API i Azure att komma åt databasen.
+
+![](D:\DOT.NET\Molntjänster\Projekt\spacepark-grupp-1-spacepark\Documentation\Solution\img\connectionstring_real_implementation.PNG)
 
 ## Tester
 
