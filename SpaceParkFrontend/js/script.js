@@ -35,17 +35,11 @@ $(() => {
 
 
 function checkPerson(i){
-    let inputName = $("#namebox").val()
+    let inputName = $("#namebox").val()   
 
-    function isValidated(isVal){
-        return isVal;
-    }
+    //let isval = isValidated(isval);   
     
-
-    let isval = isValidated(isval);   
-    validateUserFromSwapi(inputName);
-
-    console.log(swActorResponse);
+    let test;
 
     let personInDB = person(inputName);
     let personData;
@@ -54,6 +48,9 @@ function checkPerson(i){
 
     //if Park is pressed
     if(i === 1){
+        validateUserFromSwapi(inputName, test);
+
+        console.log(test);
         //check if person belong to starwars
         // try{
         //     let swActorResponseData = JSON.parse(swActorResponse.responseText);
@@ -86,6 +83,8 @@ function checkPerson(i){
     // }
 
 }
+
+
 
 
 

@@ -10,7 +10,7 @@ function validateButton() {
     }
 }
 
-function validateUserFromSwapi(input){
+function validateUserFromSwapi(input, testinput){
     let url = `https://swapi.dev/api/people/?search=${input}`;
     let request = new XMLHttpRequest();
     request.open("GET", url);
@@ -19,12 +19,12 @@ function validateUserFromSwapi(input){
         let data = JSON.parse(request.responseText);
         
         try {                    
-            document.getElementById("errorMessage").innerHTML = data.results[0].name + ": " + ": " + "Have been verified";
-            isValidated(1)        
+            document.getElementById("errorMessage").innerHTML = data.results[0].name + ": " + ": " + "Have been verified";  
+            testinput = 1;              
         }
         catch (error) {
             document.getElementById("errorMessage").innerHTML = input + ": " + "Are not allowed to use Spaceport";
-            isValidated(0); 
+            testinput = 2; 
         }        
     }
     request.send();  
