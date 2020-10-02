@@ -34,9 +34,7 @@
                     </div>
                 </div>
                 <p id="errorMessage"></p>
-                <button type="submit" id="submit">
-                    <img id="pic" src="img/parking.svg">Park
-                </button>
+
             </div>
         </form>
 
@@ -46,13 +44,20 @@
             </div>
         </div>
     </div>
+    <div class="validateButtonContainer">
+        <button type="submit" id="submit">
+            <img id="pic" src="img/parking.svg">Park
+        </button>
+        <button onclick="getStarShipsFromInput()" id="validate">Validate</button>
+    </div>
 
 
-    <button onclick="getStarShipsFromInput()" id="validate">Validate</button>
     <script src="js/GetShipsFromSwapi.js"></script>
     <script src="js/Models.js"></script>
     <script src="js/BackendApiCalls.js"></script>
+    <script src="js/CheckPersonFromDB.js"></script>
     <script src="js/script.js"></script>
+
 </body>
 
 </html>
