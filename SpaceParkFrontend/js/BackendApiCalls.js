@@ -1,3 +1,4 @@
+
 /****************************************************
 ------------------ SPACESHIP CALLS ------------------
 ****************************************************/
@@ -51,7 +52,7 @@ const deleteSpaceship = async (id) => {
     try {
         //Save the person that belongs to the ship to delete it after the ship has been deleted
         let person = getSpaceship(id).then(result => JSON.parse(result));
-        let response = await fetch(`https://localhost:44350/api/v1.0/spaceship/${id}`,
+        let response = await fetch(`https://webapibackendsw.azurewebsites.net/api/v1.0/spaceship/${id}`,
             { method: "DELETE" }
         );
 
@@ -67,6 +68,24 @@ const deleteSpaceship = async (id) => {
 /****************************************************
 ------------------- PERSON CALLS --------------------
 ****************************************************/
+function person(name) {
+    let url = `https://localhost:44350/api/v1.0/person/${name}`;
+
+    let request = new XMLHttpRequest();
+    request.open("GET", url);
+
+    request.onload = function () {
+        try {
+            let data = JSON.parse(request.responseText);
+            alert(data.name + " har checkat ut")
+        } catch (error) {
+            alert("Du måste parkera innan du kan checka ut")
+        }
+    };
+    request.send();
+}
+
+
 
 //Method making a call to our api to fetch a person by name.
 const getPerson = async (name) => {
@@ -77,9 +96,9 @@ const getPerson = async (name) => {
 
         console.log(response);
 
-        let obj = new Person();
-        obj = obj.MapFromJson(JSON.stringify(data));
-        return obj;
+        // let obj = new Person();
+        // obj = obj.MapFromJson(JSON.stringify(data));
+        return data;
     } catch (error) {
         console.error(error);
     }
@@ -111,7 +130,7 @@ const postPerson = async (personObject) => {
 //Method making a call to our api to delete a person by name.
 const deletePerson = async (name) => {
     try {
-        let response = await fetch(`https://localhost:44350/api/v1.0/person/${name}`,
+        let response = await fetch(`https://webapibackendsw.azurewebsites.net/api/v1.0/person/${name}`,
             { method: 'DELETE' });
         return response.json;
     } catch (error) {
@@ -120,10 +139,10 @@ const deletePerson = async (name) => {
 };
 
 
-const deletePersonById = async(id) => {
+const deletePersonById = async (id) => {
     try {
-        let response = await fetch(`https://localhost:44350/api/v1.0/person/${id}`, 
-            {method: 'DELETE'});
+        let response = await fetch(`https://webapibackendsw.azurewebsites.net/api/v1.0/person/${id}`,
+            { method: 'DELETE' });
         return response.json;
     } catch (error) {
         console.error(error);
@@ -132,34 +151,34 @@ const deletePersonById = async(id) => {
 
 
 
-const deleteParkingSpace = async(id) => {
+const deleteParkingSpace = async (id) => {
     try {
-        let response = await fetch(`https://localhost:44350/api/v1.0/ParkingSpace/${id}`,
-            {method: 'DELETE'});
+        let response = await fetch(`https://webapibackendsw.azurewebsites.net/api/v1.0/ParkingSpace/${id}`,
+            { method: 'DELETE' });
         return response.json;
     } catch (error) {
         console.error(error);
     }
 };
 
-const postParkingSpace = async(ParkingSpaceObject) => {
+const postParkingSpace = async (ParkingSpaceObject) => {
     try {
 
-            //Do request
-            let response = await fetch(`https://localhost:44350/api/v1.0/ParkingSpace`,
-                {
-                    method: 'POST',
-                    headers: { 'Content-Type': `application/json` },
-                    body: ParkingSpaceObject.ToJsonString()
-                });
+        //Do request
+        let response = await fetch(`https://webapibackendsw.azurewebsites.net/api/v1.0/ParkingSpace`,
+            {
+                method: 'POST',
+                headers: { 'Content-Type': `application/json` },
+                body: ParkingSpaceObject.ToJsonString()
+            });
 
-            //Log the response to console
-            console.log(response);
+        //Log the response to console
+        console.log(response);
 
-            //Get the response body as json and return it
-            let json = response.json();
-            return json;
-        } catch (error) {
-            console.error(error);
-        }
-    };
+        //Get the response body as json and return it
+        let json = response.json();
+        return json;
+    } catch (error) {
+        console.error(error);
+    }
+};
