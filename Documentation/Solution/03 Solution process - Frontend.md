@@ -128,8 +128,6 @@ Den sidan som användaren möter är tänkt att fungera som en parkeringsautomat
 
 Själva uppbyggnaden var inte så svår men ganska pilligt i CSS:n för att få alla knappar och bilder precis som vi ville ha dom.
 
-## Metoder
-
 
 
 ## Utmaningar
