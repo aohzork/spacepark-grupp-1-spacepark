@@ -31,16 +31,7 @@ namespace SpaceParkAPI.Db_Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            //var azureDbCon = _aKVService.GetKeyVaultSecret("https://spaceparkkv.vault.azure.net/secrets/dbcon/177aa99fc9a64986b14bb47e92d82012");
-            //if(string.IsNullOrEmpty(azureDbCon))
-            //{
                 optionsBuilder.UseSqlServer(_configuration.GetConnectionString("DefaultConnection"));
-                optionsBuilder.UseSqlServer("Server=tcp:swdbserver.database.windows.net,1433;Initial Catalog=swDatabase;Persist Security Info=False;User ID=swadmin;Password=starwarsadmin1234!!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
-            //}
-            //else
-            //{
-            //    optionsBuilder.UseSqlServer(azureDbCon);
-            //}        
         }
 
         
