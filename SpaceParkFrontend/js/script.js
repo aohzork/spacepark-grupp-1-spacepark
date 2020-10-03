@@ -37,62 +37,63 @@ $(() => {
 function checkPerson(i){
     let inputName = $("#namebox").val()   
 
-    //let isval = isValidated(isval);   
-    
-    let test;
-
-    let personInDB = person(inputName);
-    let personData;
-
-    var proceed = 0;
-
     //if Park is pressed
     if(i === 1){
-        validateUserFromSwapi(inputName, test);
 
-        console.log(test);
-        //check if person belong to starwars
-        // try{
-        //     let swActorResponseData = JSON.parse(swActorResponse.responseText);
-        //     document.getElementById("errorMessage").innerHTML = [swActorResponseData.results[0].name] + ": " + "Have been verified";
-            
-        //     //check if person exist in database
-        //     // try{
-        //     //     personData = JSON.parse(personInDB.responseText);  
-        //     //     alert("You have already parked. You have to unpark first!");         
-        //     // } catch (error) {
-        //     //     proceed = 1;
-        //     //     alert(name + "  har blivit varifierad och kan gå vidare och parkera")
-        //     //     getStarShipsFromInput();
-        //     // }
-        // } catch(error){
-        //     document.getElementById("errorMessage").innerHTML = inputName + ": " + "Are not allowed to use Spaceport";
-        // }
+        //Validate starwarscustomer and callback name to proceed
+        validateUserFromSwapi(inputName, function(callback){
+            let swapiActor = callback;
+            console.log(swapiActor);
+
+            //Check if customer has already parked
+            if(swapiActor !== 0){
+                getPersonRequestStatusCallback(swapiActor, function(callbackStatus){
+                    console.log(callbackStatus)
+                    if(callbackStatus === 200){
+                        alert("You have already parked! Please Checkout(Unpark) before you can park again.");
+                    }
+
+                    //free to park if not found in db
+                    if(callbackStatus === 404){
+                        alert("Choose ship and Park!");
+                        getStarShipsFromInput();
+
+                        console.log("LAST: "+ swapiActor);
+
+                        //call park and pass actor name
+                        park(swapiActor);
+                    }
+                });
+            }            
+        });
     } 
     
     //if Unpark is pressed
-    // else if(i == 2){
+    else if(i == 2){
+        getPersonRequestStatusCallback(inputName, function(callbackStatus){
+            if(callbackStatus === 404){
+                alert("Are you sure you have parked? Spacepark cannot find any vehicle registred on you")
+            }
 
-    //     //
-    //     try{
-    //         personData = JSON.parse(personInDB.responseText);   
-    //         proceed = 1;        
-    //     } catch (error) {
-    //         alert(name + "  måste parkera innan du kan checka ut")
-    //     }
-    // }
+            if(callbackStatus === 200){
+                getPerson(inputName).then(function(result){
+                    console.log("Spaceship ID: " + result.spaceshipID);
+                });
+            }
+        }); 
 
-}
-
-
-
-
-
-function park() {
+        
+    }
 
 }
 
+function park(personToPark) {
+    console.log("inside park: " + personToPark);
+}
 
+function unpark(personToUnpark){
+    console.log("inside unpark: " + personToUnpark);
+}
 
 // function unpark() {
 //     let name = $("#namebox").val();
@@ -102,11 +103,9 @@ function park() {
 // let p = getSpaceship(1).then(result => result);
 // p.then(result => console.log(result));
 
-// let pp = getPerson("eric").then(result => result);
-// pp.then(result => console.log(result));
-
-// let ppp = getPerson("eric").then(result => result);
-// ppp.then(result => console.log(result));
+// getPerson("eric").then(function(result){
+//     console.log(result.spaceshipID);
+// });
 
 //let ppp = getPerson("kalle").then(result => result);
 //ppp.then(result => console.log(result));

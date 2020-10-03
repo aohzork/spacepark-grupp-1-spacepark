@@ -68,28 +68,30 @@ const deleteSpaceship = async (id) => {
 /****************************************************
 ------------------- PERSON CALLS --------------------
 ****************************************************/
-function person(name) {
+function getPersonRequestStatusCallback(name, callback) {
     let url = `https://localhost:44350/api/v1.0/person/${name}`;
 
     let request = new XMLHttpRequest();
     request.open("GET", url);
 
-    // request.onload = function () {
-    //     try {
-    //         let data = JSON.parse(request.responseText);
-    //         alert(data.name + " har checkat ut")
-    //     } catch (error) {
-    //         alert("Du måste parkera innan du kan checka ut")
-    //     }
-    // };
+    request.onload = function () {
+        //console.log(request.status);
+        callback(request.status);
+
+        try {
+            let data = JSON.parse(request.responseText);
+            console.log(data.name);
+        } catch (error) {
+            console.log("no person in db with that name");
+        }
+    };
     request.send();
-    return request;
 }
 
 
 
 //Method making a call to our api to fetch a person by name.
-const getPerson = async (name) => {
+const getPerson = async (name, callback) => {
     try {
         let response = await fetch(`https://localhost:44350/api/v1.0/person/${name}`,
             { method: 'GET' });
