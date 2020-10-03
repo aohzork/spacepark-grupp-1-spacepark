@@ -23,9 +23,13 @@ namespace SpaceParkAPI.Db_Context
         public virtual DbSet<PersonModel> Persons { get; set; }
         public virtual DbSet<SpaceshipModel> Spaceships { get; set; }
 
+
+    
+
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=tcp:parkingspaceapi.database.windows.net,1433;Initial Catalog=StarwarsDBGroup1;Persist Security Info=False;User ID=swadmin;Password=starwarsadmin1234!!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");               
+                optionsBuilder.UseSqlServer(_configuration.GetConnectionString("DefaultConnection"));
         }
 
         

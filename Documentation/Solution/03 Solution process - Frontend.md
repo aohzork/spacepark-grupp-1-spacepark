@@ -124,9 +124,9 @@ function getStarShipsFromSwapi(input) {
 
 ## Presentationslogik
 
-ERIC OCH AMDREAS FYLL PÅ HÄR
+Den sidan som användaren möter är tänkt att fungera som en parkeringsautomat. Du får först välja om du vill parkera eller checka ut (unpark). Knappen du väljer blir markerad med grön så att du lätt ska veta vilket val du har gjort. Beroende på vilket val du väljer här så ändras submit-knappen längre ner på sidan till att stå Park eller Unpark. Sedan fyller du i ditt namn, uppgifter och trycker på "Validate" och då får du ett svar på om du får parkera eller inte. 
 
-## Metoder
+Själva uppbyggnaden var inte så svår men ganska pilligt i CSS:n för att få alla knappar och bilder precis som vi ville ha dom.
 
 
 
