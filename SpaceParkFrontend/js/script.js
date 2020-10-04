@@ -41,7 +41,7 @@ $(() => {
 function park(swapiActorToPark) {
     console.log("Inside park function: " + swapiActorToPark);
     
-    let dataToPost = {
+    let parkingSpaceObjectToPost = {
         "spaceship": {
             "person": {
                 "name": swapiActorToPark,
@@ -53,14 +53,20 @@ function park(swapiActorToPark) {
         "parkingLot": null
     }
 
-    postParkingSpace(dataToPost);
+    postParkingSpace(parkingSpaceObjectToPost).then(()=>{
+        alert("You have now parked!");
+    });
+    //getSpaceship(result.spaceshipID).then(function(shipResult)
 }
 
 //use parkingspace id to 
 function unpark(parkingspaceId){
     console.log("Inside unpark function: " + parkingspaceId);
 
-    deleteParkingSpace(parkingspaceId);
+    deleteParkingSpace(parkingspaceId).then(()=>{
+        alert("To unpark you have to pay: " + 5*1000 + "SW Credits. Pay?");
+        alert("You have now paid and can leave. Hope to see you again!");
+    });
 }
 
 
