@@ -119,6 +119,7 @@ function checkPerson(i){
 
             //if parked, get spaceship id
             if(callbackStatus === 200){
+                document.getElementById("errorMessage").innerHTML = "We have located your spaceship. You are ready to take off!";
                 getPerson(inputName).then(function(result){
                     console.log("Spaceship ID: " + result.spaceshipID);
 
