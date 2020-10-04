@@ -1,4 +1,14 @@
 
+/****************************************************
+------------------ GLOBAL ACCESS VARIABLES ----------
+****************************************************/
+var parkingData;
+
+// function GetParkingData(data) {
+//     console.log("data get: " + data);
+//     return personToPark;
+// }
+
 $(() => {
 
     let i = 0;
@@ -16,12 +26,12 @@ $(() => {
     });
 
     $("#submit").click(() => {
-        if (i === 1) {
-            park();
+        if (i === 1) {           
+            park(parkingData);
 
         }
         if (i === 2) {
-            unpark();
+            unpark(parkingData);
         }
 
     });
@@ -29,9 +39,22 @@ $(() => {
     $("#validate").click(() => {
         checkPerson(i);
     });
-
     
 });
+
+function park(swapiActorToPark) {
+    console.log("Inside park function: " + swapiActorToPark);
+    let dataToPost = {}
+
+
+}
+
+//use parkingspace id to 
+function unpark(parkingspaceId){
+    console.log("Inside unpark function: " + parkingspaceId);
+
+
+}
 
 
 function checkPerson(i){
@@ -49,6 +72,8 @@ function checkPerson(i){
             if(swapiActor !== 0){
                 getPersonRequestStatusCallback(swapiActor, function(callbackStatus){
                     console.log(callbackStatus)
+
+                    //if found has already parked
                     if(callbackStatus === 200){
                         alert("You have already parked! Please Checkout(Unpark) before you can park again.");
                     }
@@ -57,11 +82,9 @@ function checkPerson(i){
                     if(callbackStatus === 404){
                         alert("Choose ship and Park!");
                         getStarShipsFromInput();
-
-                        console.log("LAST: "+ swapiActor);
-
-                        //call park and pass actor name
-                        park(swapiActor);
+                        
+                        //set global variable to star wars actor to access it when click Park
+                        parkingData = swapiActor;                        
                     }
                 });
             }            
@@ -70,30 +93,32 @@ function checkPerson(i){
     
     //if Unpark is pressed
     else if(i == 2){
+
+        //check if person has parked
         getPersonRequestStatusCallback(inputName, function(callbackStatus){
             if(callbackStatus === 404){
                 alert("Are you sure you have parked? Spacepark cannot find any vehicle registred on you")
             }
 
+            //if parked, get spaceship id
             if(callbackStatus === 200){
                 getPerson(inputName).then(function(result){
                     console.log("Spaceship ID: " + result.spaceshipID);
+
+                    //from  spaceship, get parkingspace id
+                    getSpaceship(result.spaceshipID).then(function(shipResult){
+                        console.log("Parkingspace ID: " + shipResult.parkingSpaceID)
+                        
+                        //set global variable to parkingspaceID to access it when click Unpark
+                        parkingData = shipResult.parkingSpaceID;                    
+                    });                    
                 });
             }
-        }); 
-
-        
+        });         
     }
-
 }
 
-function park(personToPark) {
-    console.log("inside park: " + personToPark);
-}
 
-function unpark(personToUnpark){
-    console.log("inside unpark: " + personToUnpark);
-}
 
 // function unpark() {
 //     let name = $("#namebox").val();
