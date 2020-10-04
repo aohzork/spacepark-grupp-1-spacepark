@@ -64,7 +64,7 @@ Vi har totalt tre pipelines för vårt projekt som vi döpt följande för att l
 
 **Pipeline Frontend publish Docker to ARC** (pipeline 3)
 
-![](D:\DOT.NET\Molntjänster\Projekt\spacepark-grupp-1-spacepark\Documentation\Solution\img\pipelines.PNG)
+![](https://github.com/PGBSNH19/spacepark-grupp-1-spacepark/blob/master/Documentation/Solution/img/pipelines.PNG)
 
 För att vårt projekt skulle laddas upp i ACR på Azure Portal valde vi följande steg:
 
@@ -99,7 +99,7 @@ När vi pratar Release Pipeline och artifacts pratar vi om distribuerbara kompon
 
 ## Release Pipeline
 
-![](D:\DOT.NET\Molntjänster\Projekt\spacepark-grupp-1-spacepark\Documentation\Solution\img\releasepipeline_frontend.PNG)
+![](https://github.com/PGBSNH19/spacepark-grupp-1-spacepark/blob/master/Documentation/Solution/img/releasepipeline_frontend.PNG)
 
 För vår lösning använder vi oss av **två fristående Release pipelines**; en för vårt <u>API</u> samt en för vår <u>Frontend</u>. Vi använder oss av en **artifact** för varje, där slutmålet är att göra en deploy till var sin **App Service** i **Azure Portal**. Varje artifact pekar/är kopplad mot en image i Azure Portal.
 
