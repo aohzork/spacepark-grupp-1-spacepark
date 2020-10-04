@@ -1,6 +1,6 @@
 # 05 Solution process - Azure Portal
 
-![ap_resoursegroup](https://github.com/PGBSNH19/spacepark-grupp-1-spacepark/tree/master/Documentation/Solution/img/ap_resourcegroup.PNG)
+![](https://github.com/PGBSNH19/spacepark-grupp-1-spacepark/tree/master/Documentation/Solution/img/ap_resourcegroup.PNG)
 
 Tjänsterna i Azure Portal var lätta att sätta upp och det gjorde inget om man gjorde fel; det var bara att radera tjänsten och börja om på  nytt. Med hjälp av de tidigare övningarna i föregående kurslektioner, visste vi på ett ungefär vad vi behövde för tjänster och hur vi skulle konfigurera upp dem. Bilden  ovan illustrerar de namn som nämns genom hela avsnittet för att lättare följa med.
 
