@@ -2,6 +2,7 @@ class Person {
     constructor(){
         this.ID = "";
         this.Name = "";
+        this.SpaceshipID = ""
     }
 
     ToJsonString() {
