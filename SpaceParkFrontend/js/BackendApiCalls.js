@@ -75,7 +75,7 @@ function getPersonRequestStatusCallback(name, callback) {
     request.open("GET", url);
 
     request.onload = function () {
-        //console.log(request.status);
+        
         callback(request.status);
 
         try {
@@ -104,7 +104,7 @@ const getPerson = async (name, callback) => {
         
         return obj;
     } catch (error) {
-        //console.error(error);
+        console.error(error);
         alert("Du måste parkera innan du kan checka ut")
     }
 };
@@ -186,9 +186,6 @@ const postParkingSpace = async (ParkingSpaceObject) => {
         //Log the response to console
         console.log(response);
 
-        //Get the response body as json and return it
-        //let json = response.json();
-        //return json;
     } catch (error) {
         console.error(error);
     }

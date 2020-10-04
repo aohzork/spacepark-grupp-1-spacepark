@@ -56,7 +56,6 @@ function park(swapiActorToPark) {
     postParkingSpace(parkingSpaceObjectToPost).then(()=>{
         alert("You have now parked!");
     });
-    //getSpaceship(result.spaceshipID).then(function(shipResult)
 }
 
 //use parkingspace id to 
@@ -130,23 +129,4 @@ function checkPerson(i){
         });         
     }
 }
-
-
-
-// function unpark() {
-//     let name = $("#namebox").val();
-//     person(name);
-// }
-
-// let p = getSpaceship(1).then(result => result);
-// p.then(result => console.log(result));
-
-// getPerson("eric").then(function(result){
-//     console.log(result.spaceshipID);
-// });
-
-//let ppp = getPerson("kalle").then(result => result);
-//ppp.then(result => console.log(result));
-
-//person("eric");
 
