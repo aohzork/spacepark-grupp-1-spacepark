@@ -1,6 +1,6 @@
 # 05 Solution process - Azure Portal
 
-![](D:\DOT.NET\Molntjänster\Projekt\spacepark-grupp-1-spacepark\Documentation\Solution\img\ap_resourcegroup.PNG)
+![](https://github.com/PGBSNH19/spacepark-grupp-1-spacepark/tree/master/Documentation/Solution/img/ap_resourcegroup.PNG)
 
 Tjänsterna i Azure Portal var lätta att sätta upp och det gjorde inget om man gjorde fel; det var bara att radera tjänsten och börja om på  nytt. Med hjälp av de tidigare övningarna i föregående kurslektioner, visste vi på ett ungefär vad vi behövde för tjänster och hur vi skulle konfigurera upp dem. Bilden  ovan illustrerar de namn som nämns genom hela avsnittet för att lättare följa med.
 
@@ -21,13 +21,13 @@ Det finns några andra alternativ för en simpel frontendhemsida. Bland annat sk
 ### Frontend
 
 Såhär ser vår frontend ut i azure:
-![](D:\DOT.NET\Molntjänster\Projekt\spacepark-grupp-1-spacepark\Documentation\Solution\img\ap_frontend.PNG)
+![](https://github.com/PGBSNH19/spacepark-grupp-1-spacepark/tree/master/Documentation/Solution/img/ap_frontend.PNG)
 
 ### Backend
 
 Såhär ser vår backend ut i azure:
 
-![](D:\DOT.NET\Molntjänster\Projekt\spacepark-grupp-1-spacepark\Documentation\Solution\img\ap_backend.PNG)
+![](https://github.com/PGBSNH19/spacepark-grupp-1-spacepark/tree/master/Documentation/Solution/img/ap_backend.PNG)
 
 
 
@@ -53,13 +53,13 @@ Oavsett vilken typ Webhosting tjänst man väljer kostar det olika mycket beroen
 
 För vår App Service finns det flera olika Tiers och vi valde ett gratisalternativ då vi inte visste hur länge våra gratiskrediter skulle vara. Det finns även en uppgradering för ett kostnadsalternativ för denna tier.
 
-![](D:\DOT.NET\Molntjänster\Projekt\spacepark-grupp-1-spacepark\Documentation\Solution\img\appservice_servicecost_devtier.PNG)
+![](https://github.com/PGBSNH19/spacepark-grupp-1-spacepark/tree/master/Documentation/Solution/img/appservice_servicecost_devtier.PNG)
 
 Av vad man kunnat läsa sig till i olika artiklar rekommenderas dessa främst för utveckling och testning, men även om man exempelvis är ett uppstartsbolag eller bara  har en enkel hemsida. För gratisalternativet **60 minuter/dag** menas inte att hemsidan är online 60 min/dag, utan snarare den tid det tar när data hämtas. Om du då surfar in på en hemsida där bilder och annat tar säg 5sekunder att ladda, då är det 5sekunder av de 60minuter du har tillgodo.
 
 Flyttar vi däremot upp en Tier Produktion, såsom sig bör om du har en någorlunda avancerad hemsida och etablerat företag kommer vi upp i helt andra kostnader men man får samtidigt mer prestanda samt olika tjänster som ingår:
 
-![](D:\DOT.NET\Molntjänster\Projekt\spacepark-grupp-1-spacepark\Documentation\Solution\img\appservice_servicecost_productiontier.PNG)
+![](https://github.com/PGBSNH19/spacepark-grupp-1-spacepark/tree/master/Documentation/Solution/img/appservice_servicecost_productiontier.PNG)
 
 Det går lätt att skala upp och ner i prestandan. Du väljer och trycker på använd, så har du bytt och dina krediter börjar direkt räknas utefter det nya valda alternativet.
 
