@@ -29,7 +29,7 @@ namespace SpaceParkAPI.Db_Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-                optionsBuilder.UseSqlServer(_configuration.GetConnectionString("DefaultConnection"));
+                optionsBuilder.UseSqlServer("Server=tcp:swdbserver.database.windows.net,1433;Initial Catalog=swDatabase;Persist Security Info=False;User ID=swadmin;Password=starwarsadmin1234!!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"));
         }
 
         

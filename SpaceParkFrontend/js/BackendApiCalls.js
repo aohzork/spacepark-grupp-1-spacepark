@@ -8,7 +8,7 @@ const getSpaceship = async (id) => {
     try {
         let response = await fetch
             (
-                `https://localhost:44350/api/v1.0/spaceship/${id}`,
+                `https://swbackend.azurewebsites.net/api/v1.0/spaceship/${id}`,
                 { method: "GET" }
             );
         let data = await response.json();
@@ -29,7 +29,7 @@ const postSpaceship = async (spaceshipObject) => {
     try {
 
         //Do request
-        let response = await fetch(`https://localhost:44350/api/v1.0/spaceship`,
+        let response = await fetch(`https://swbackend.azurewebsites.net/api/v1.0/spaceship`,
             {
                 method: 'POST',
                 headers: { 'Content-Type': `application/json` },
@@ -52,7 +52,7 @@ const deleteSpaceship = async (id) => {
     try {
         //Save the person that belongs to the ship to delete it after the ship has been deleted
         let person = getSpaceship(id).then(result => JSON.parse(result));
-        let response = await fetch(`https://webapibackendsw.azurewebsites.net/api/v1.0/spaceship/${id}`,
+        let response = await fetch(`https://swbackend.azurewebsites.net/api/v1.0/spaceship/${id}`,
             { method: "DELETE" }
         );
 
@@ -69,7 +69,7 @@ const deleteSpaceship = async (id) => {
 ------------------- PERSON CALLS --------------------
 ****************************************************/
 function getPersonRequestStatusCallback(name, callback) {
-    let url = `https://localhost:44350/api/v1.0/person/${name}`;
+    let url = `https://swbackend.azurewebsites.net/api/v1.0/person/${name}`;
 
     let request = new XMLHttpRequest();
     request.open("GET", url);
@@ -93,7 +93,7 @@ function getPersonRequestStatusCallback(name, callback) {
 //Method making a call to our api to fetch a person by name.
 const getPerson = async (name, callback) => {
     try {
-        let response = await fetch(`https://localhost:44350/api/v1.0/person/${name}`,
+        let response = await fetch(`https://swbackend.azurewebsites.net/api/v1.0/person/${name}`,
             { method: 'GET' });
         let data = await response.json();
 
@@ -114,7 +114,7 @@ const postPerson = async (personObject) => {
     try {
 
         //Do request
-        let response = await fetch(`https://localhost:44350/api/v1.0/person`,
+        let response = await fetch(`https://swbackend.azurewebsites.net/api/v1.0/person`,
             {
                 method: 'POST',
                 headers: { 'Content-Type': `application/json` },
@@ -137,7 +137,7 @@ const postPerson = async (personObject) => {
 //Method making a call to our api to delete a person by name.
 const deletePerson = async (name) => {
     try {
-        let response = await fetch(`https://webapibackendsw.azurewebsites.net/api/v1.0/person/${name}`,
+        let response = await fetch(`https://swbackend.azurewebsites.net/api/v1.0/person/${name}`,
             { method: 'DELETE' });
         return response.json;
     } catch (error) {
@@ -148,7 +148,7 @@ const deletePerson = async (name) => {
 
 const deletePersonById = async (id) => {
     try {
-        let response = await fetch(`https://webapibackendsw.azurewebsites.net/api/v1.0/person/${id}`,
+        let response = await fetch(`https://swbackend.azurewebsites.net/api/v1.0/person/${id}`,
             { method: 'DELETE' });
         return response.json;
     } catch (error) {
@@ -160,7 +160,7 @@ const deletePersonById = async (id) => {
 
 const deleteParkingSpace = async (id) => {
     try {
-        let response = await fetch(`https://localhost:44350/api/v1.0/ParkingSpace/${id}`,
+        let response = await fetch(`https://swbackend.azurewebsites.net/api/v1.0/ParkingSpace/${id}`,
             { method: 'DELETE' });
         return response.json;
     } catch (error) {
@@ -176,7 +176,7 @@ const postParkingSpace = async (ParkingSpaceObject) => {
     try {
 
         //Do request
-        let response = await fetch(`https://localhost:44350/api/v1.0/ParkingSpace`,
+        let response = await fetch(`https://swbackend.azurewebsites.net/api/v1.0/ParkingSpace`,
             {
                 method: 'POST',
                 headers: { 'Content-Type': `application/json` },
