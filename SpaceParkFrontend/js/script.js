@@ -54,7 +54,8 @@ function park(swapiActorToPark) {
     }
 
     postParkingSpace(parkingSpaceObjectToPost).then(()=>{
-        alert("You have now parked!");
+        //alert("You have now parked!");
+        document.getElementById("errorMessage").innerHTML = "You have now parked!";
     });
 }
 
@@ -63,8 +64,9 @@ function unpark(parkingspaceId){
     console.log("Inside unpark function: " + parkingspaceId);
 
     deleteParkingSpace(parkingspaceId).then(()=>{
-        alert("To unpark you have to pay: " + 5*1000 + "SW Credits. Pay?");
-        alert("You have now paid and can leave. Hope to see you again!");
+        document.getElementById("errorMessage").innerHTML = "Thank you for parking! 5000 SW Credits have now been deducted from your account.";
+        //alert("To unpark you have to pay: " + 5*1000 + "SW Credits. Pay?");
+        //alert("You have now paid and can leave. Hope to see you again!");
     });
 }
 
@@ -87,12 +89,14 @@ function checkPerson(i){
 
                     //if found has already parked
                     if(callbackStatus === 200){
-                        alert("You have already parked! Please Checkout(Unpark) before you can park again.");
+                        document.getElementById("errorMessage").innerHTML = "You have already parked! Please Checkout(Unpark) before you can park again.";
+                        //alert("You have already parked! Please Checkout(Unpark) before you can park again.");
                     }
 
                     //free to park if not found in db
-                    if(callbackStatus === 404){
-                        alert("Choose ship and Park!");
+                    if(callbackStatus === 404){                       
+                        document.getElementById("errorMessage").innerHTML = "Choose ship and Park!";
+                        //alert("Choose ship and Park!");
                         getStarShipsFromInput();
                         
                         //set global variable to star wars actor to access it when click Park
@@ -109,11 +113,13 @@ function checkPerson(i){
         //check if person has parked
         getPersonRequestStatusCallback(inputName, function(callbackStatus){
             if(callbackStatus === 404){
-                alert("Are you sure you have parked? Spacepark cannot find any vehicle registred on you")
+                document.getElementById("errorMessage").innerHTML = "Are you sure you have parked? Spacepark cannot find any vehicle registred on you";
+                //alert("Are you sure you have parked? Spacepark cannot find any vehicle registred on you")
             }
 
             //if parked, get spaceship id
             if(callbackStatus === 200){
+                document.getElementById("errorMessage").innerHTML = "We have located your spaceship. You are ready to take off!";
                 getPerson(inputName).then(function(result){
                     console.log("Spaceship ID: " + result.spaceshipID);
 
