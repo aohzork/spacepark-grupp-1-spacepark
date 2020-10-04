@@ -10,6 +10,28 @@ function validateButton() {
     }
 }
 
+function validateUserFromSwapi(input, callback){
+    let url = `https://swapi.dev/api/people/?search=${input}`;
+    let request = new XMLHttpRequest();
+    request.open("GET", url);
+        
+    request.onload = function () {   
+        console.log(request.status); 
+        let data = JSON.parse(request.responseText);
+        
+        try {                    
+            document.getElementById("errorMessage").innerHTML = data.results[0].name + ": " + ": " + "Have been verified";
+            callback(data.results[0].name);    
+        }
+        catch (error) {
+            document.getElementById("errorMessage").innerHTML = input + ": " + "Are not allowed to use Spaceport";
+            callback(0);
+        }        
+    }
+    request.send();  
+}
+
+
 function getStarShipsFromInput() {
     let input = document.getElementById("namebox").value;
     getStarShipsFromSwapi(input)
@@ -26,10 +48,9 @@ function getStarShipsFromSwapi(input) {
         try {
             let starShips = [data.results[0].starships];
             fetchShips(starShips);
-            document.getElementById("errorMessage").innerHTML = "";
         }
         catch (error) {
-            document.getElementById("errorMessage").innerHTML = input + ": " + "Are not allowed to use SpacePark";
+            document.getElementById("errorMessage").innerHTML = input + ": " + "No ships found. Do you own any ships?";
         }
     }
     request.send();

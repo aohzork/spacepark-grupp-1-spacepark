@@ -68,18 +68,21 @@ const deleteSpaceship = async (id) => {
 /****************************************************
 ------------------- PERSON CALLS --------------------
 ****************************************************/
-function person(name) {
+function getPersonRequestStatusCallback(name, callback) {
     let url = `https://localhost:44350/api/v1.0/person/${name}`;
 
     let request = new XMLHttpRequest();
     request.open("GET", url);
 
     request.onload = function () {
+        //console.log(request.status);
+        callback(request.status);
+
         try {
             let data = JSON.parse(request.responseText);
-            alert(data.name + " har checkat ut")
+            console.log(data.name);
         } catch (error) {
-            alert("Du måste parkera innan du kan checka ut")
+            console.log("no person in db with that name");
         }
     };
     request.send();
@@ -88,7 +91,7 @@ function person(name) {
 
 
 //Method making a call to our api to fetch a person by name.
-const getPerson = async (name) => {
+const getPerson = async (name, callback) => {
     try {
         let response = await fetch(`https://localhost:44350/api/v1.0/person/${name}`,
             { method: 'GET' });
@@ -96,11 +99,13 @@ const getPerson = async (name) => {
 
         console.log(response);
 
-        // let obj = new Person();
-        // obj = obj.MapFromJson(JSON.stringify(data));
-        return data;
+        let obj = new Person();
+        obj = obj.MapFromJson(JSON.stringify(data));
+        
+        return obj;
     } catch (error) {
-        console.error(error);
+        //console.error(error);
+        alert("Du måste parkera innan du kan checka ut")
     }
 };
 
@@ -113,15 +118,17 @@ const postPerson = async (personObject) => {
             {
                 method: 'POST',
                 headers: { 'Content-Type': `application/json` },
+                mode: 'no-cors',
                 body: personObject.ToJsonString()
-            });
+            }).then(res => {console.log("Request status: "+ res)});
 
         //Log the response to console
         console.log(response);
 
         //Get the response body as json and return it
         let json = response.json();
-        return json;
+        
+        return response.json();
     } catch (error) {
         console.error(error);
     }
@@ -153,7 +160,7 @@ const deletePersonById = async (id) => {
 
 const deleteParkingSpace = async (id) => {
     try {
-        let response = await fetch(`https://webapibackendsw.azurewebsites.net/api/v1.0/ParkingSpace/${id}`,
+        let response = await fetch(`https://localhost:44350/api/v1.0/ParkingSpace/${id}`,
             { method: 'DELETE' });
         return response.json;
     } catch (error) {
@@ -162,22 +169,26 @@ const deleteParkingSpace = async (id) => {
 };
 
 const postParkingSpace = async (ParkingSpaceObject) => {
+    
+    let objToPost = JSON.stringify(ParkingSpaceObject);  
+    console.log("Parkingspaceobj " + objToPost);
+
     try {
 
         //Do request
-        let response = await fetch(`https://webapibackendsw.azurewebsites.net/api/v1.0/ParkingSpace`,
+        let response = await fetch(`https://localhost:44350/api/v1.0/ParkingSpace`,
             {
                 method: 'POST',
                 headers: { 'Content-Type': `application/json` },
-                body: ParkingSpaceObject.ToJsonString()
+                body: objToPost
             });
-
+   
         //Log the response to console
         console.log(response);
 
         //Get the response body as json and return it
-        let json = response.json();
-        return json;
+        //let json = response.json();
+        //return json;
     } catch (error) {
         console.error(error);
     }
