@@ -3,11 +3,7 @@
 ------------------ GLOBAL ACCESS VARIABLES ----------
 ****************************************************/
 var parkingData;
-
-// function GetParkingData(data) {
-//     console.log("data get: " + data);
-//     return personToPark;
-// }
+/************************************************** */
 
 $(() => {
 
@@ -44,16 +40,27 @@ $(() => {
 
 function park(swapiActorToPark) {
     console.log("Inside park function: " + swapiActorToPark);
-    let dataToPost = {}
+    
+    let dataToPost = {
+        "spaceship": {
+            "person": {
+                "name": swapiActorToPark,
+                "spaceship": null
+            },
+            "parkingSpace": null
+        },
+        "parkingLotID": 1,
+        "parkingLot": null
+    }
 
-
+    postParkingSpace(dataToPost);
 }
 
 //use parkingspace id to 
 function unpark(parkingspaceId){
     console.log("Inside unpark function: " + parkingspaceId);
 
-
+    deleteParkingSpace(parkingspaceId);
 }
 
 
