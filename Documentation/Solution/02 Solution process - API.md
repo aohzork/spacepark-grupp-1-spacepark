@@ -26,7 +26,7 @@ Följande länk hittas youtubeklippet: [[.Net Core] With Azure: Using Azure Key 
 
 Istället som för klippet, där implementationen av klassen han skapade låg i program.cs, använde vi den istället i vår SpaceParkContext där vår connectionstring till vår databas finns, samt att vi även försäkrade oss med en lokal fallback utifall vår secret slutade fungera av någon anledning:
 
-![](D:\DOT.NET\Molntjänster\Projekt\spacepark-grupp-1-spacepark\Documentation\Solution\img\keyvault_implementation.PNG)
+![](https://github.com/PGBSNH19/spacepark-grupp-1-spacepark/blob/master/Documentation/Solution/img/keyvault_implementation.PNG)
 
 Dock visade sig detta fungera endast för utvecklingsmiljö, så att så fort vi körde det genom våra pipelines och upp till vårt API App Service i Azure, fungerade det inte längre. Felmeddelande om servicen inte lyckades att Autentisera sig mot Key Vault. Något saknades. Efter mycket experimenterande lyckades vi få till det genom Connected Services Azure Key Vault och några fler nugets som installerades i samband. Genom att använda Connected Services, så lades det till nödvändiga  parametrar och kod i bland annat launchsettings.json & Program.cs.
 
@@ -36,7 +36,7 @@ Nu fungerade det äntligen med externt för samtliga medlemmar. Men, så fort vi
 
 **<u>För att komma vidare samt att kursens fokus låg på Azure, tog hela gruppen ett beslut på att klistra in hela connectionstringen synligt i vår OnConfiguring metod.</u>** Nu fungerade det externt i vår Backend API i Azure att komma åt databasen.
 
-![](D:\DOT.NET\Molntjänster\Projekt\spacepark-grupp-1-spacepark\Documentation\Solution\img\connectionstring_real_implementation.PNG)
+![](https://github.com/PGBSNH19/spacepark-grupp-1-spacepark/blob/master/Documentation/Solution/img/connectionstring_real_implementation.PNG)
 
 ## Tester
 
