@@ -13,7 +13,7 @@ variables:
   dockerRegistryServiceConnection: 'e58338c5-dcdf-40e8-91c2-e02005976141'
   imageRepository: 'frontendimage'
   containerRegistry: 'spaceportacr.azurecr.io'
-  dockerfilePath: '$(Build.SourcesDirectory)/Frontend/Dockerfile'
+  dockerfilePath: '$(Build.SourcesDirectory)/SpaceParkFrontend/Dockerfile'
   tag: '$(Build.BuildId)'
   
   # Agent VM image name
